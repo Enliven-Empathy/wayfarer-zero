@@ -2,6 +2,7 @@ import { AUTO, Game, Scale } from 'phaser';
 import type { Types } from 'phaser';
 import { VIEW, COLORS } from '@core/tuning/world.ts';
 import { BootScene } from './scenes/BootScene.ts';
+import { LabScene } from './scenes/LabScene.ts';
 
 /**
  * Milliseconds without a completed engine step, while the page is visible,
@@ -70,7 +71,7 @@ export function createGame(): Game {
 
     render: import.meta.env.DEV ? { preserveDrawingBuffer: true } : {},
 
-    scene: [BootScene],
+    scene: [BootScene, LabScene],
   };
 
   const game = new Game(config);
@@ -96,7 +97,15 @@ export function createGame(): Game {
  * visible error. Lionn shipped this bug to a five-year-old as a frozen purple
  * screen. Catching at the engine layer means one bad frame is survivable.
  */
+let stepGuardInstalled = false;
+
 function patchStepGuard(): void {
+  // Patch once. It is applied to the prototype, so a second call during a hot
+  // reload would wrap the already-wrapped function and grow the call stack by
+  // one frame per reload.
+  if (stepGuardInstalled) return;
+  stepGuardInstalled = true;
+
   const original = Game.prototype.step;
   Game.prototype.step = function patchedStep(this: Game, time: number, delta: number): void {
     try {
@@ -109,9 +118,20 @@ function patchStepGuard(): void {
 
 /**
  * Second layer. The guard above survives a throwing frame; it cannot survive a
- * loop that stops being scheduled at all. If no step completes for
- * WATCHDOG_STALL_MS while the page is visible, reload rather than leave a dead
- * canvas on screen.
+ * loop that stops being scheduled at all. If the engine has genuinely died,
+ * reload rather than leave a dead canvas on screen.
+ *
+ * The hard part is telling a dead loop apart from a *throttled* one. Browsers
+ * throttle requestAnimationFrame to near zero for occluded windows, background
+ * tabs and headless previews — and `document.hidden` is false in the occluded
+ * case, so it is not a sufficient test on its own. Reloading there would put
+ * the page into an endless reload cycle whenever the window happened to be
+ * covered.
+ *
+ * The discriminator: schedule our *own* rAF callback. If ours fires while
+ * Phaser's step has not, the browser is animating and the engine is broken —
+ * reload. If ours does not fire either, the whole page is throttled and there
+ * is nothing wrong.
  */
 function installWatchdog(game: Game): void {
   let lastStepAt = performance.now();
@@ -120,16 +140,25 @@ function installWatchdog(game: Game): void {
   });
 
   window.setInterval(() => {
-    // A backgrounded tab throttles rAF legitimately; that is not a stall.
     if (document.hidden) return;
-    if (performance.now() - lastStepAt > WATCHDOG_STALL_MS) {
-      console.warn(`[watchdog] no engine step in >${WATCHDOG_STALL_MS} ms — reloading`);
+    if (performance.now() - lastStepAt <= WATCHDOG_STALL_MS) return;
+
+    // Probe: is the browser painting at all?
+    const probeStartedAt = performance.now();
+    requestAnimationFrame(() => {
+      const rafIsAlive = performance.now() - probeStartedAt < WATCHDOG_STALL_MS;
+      const stepStillStalled = performance.now() - lastStepAt > WATCHDOG_STALL_MS;
+      if (!rafIsAlive || !stepStillStalled) return;
+
+      console.warn(
+        `[watchdog] rAF is running but no engine step in >${WATCHDOG_STALL_MS} ms — reloading`,
+      );
       try {
         window.location.reload();
       } catch {
         /* nothing left to try */
       }
-    }
+    });
   }, WATCHDOG_POLL_MS);
 }
 

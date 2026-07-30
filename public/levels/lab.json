@@ -1,0 +1,86 @@
+{
+  "id": "lab",
+  "width": 3200,
+  "height": 720,
+
+  "_comment": "The movement laboratory. Every element the F1 handoff asks for, laid out so each one can be reached and tested in sequence without backtracking. Heights are checked against the measured jump: a full jump lifts Rook's feet ~146 px (analytic 152.82, minus semi-implicit Euler discretisation), so every platform top sits at most ~130 px above the surface it is reached from, leaving margin for imperfect timing.",
+
+  "solids": [
+    { "x": 0, "y": 600, "w": 880, "h": 120 },
+    { "x": 1040, "y": 600, "w": 760, "h": 120 },
+    { "x": 1960, "y": 600, "w": 1240, "h": 120 },
+
+    { "x": 1500, "y": 480, "w": 220, "h": 24 },
+    { "x": 1180, "y": 362, "w": 170, "h": 24 },
+
+    { "x": 2400, "y": 470, "w": 200, "h": 24 },
+
+    { "x": 2760, "y": 470, "w": 200, "h": 24 },
+    { "x": 2760, "y": 330, "w": 200, "h": 24 }
+  ],
+
+  "oneWayPlatforms": [{ "x": 600, "y": 470, "w": 220, "h": 16 }],
+
+  "climbSurfaces": [{ "x": 2120, "y": 300, "w": 24, "h": 300 }],
+
+  "breakables": [
+    { "id": "cracked-floor", "x": 1300, "y": 600, "w": 120, "h": 40, "requiredImpact": 900 }
+  ],
+
+  "interactions": [
+    {
+      "id": "crate-light",
+      "kind": "prop",
+      "weightClass": "light",
+      "contextPriority": 40,
+      "x": 320,
+      "y": 552,
+      "w": 48,
+      "h": 48
+    },
+    {
+      "id": "orla-merchant",
+      "kind": "npc",
+      "weightClass": "immovable",
+      "contextPriority": 70,
+      "x": 700,
+      "y": 504,
+      "w": 44,
+      "h": 96
+    },
+    {
+      "id": "waybell-lab",
+      "kind": "waybell",
+      "weightClass": "immovable",
+      "contextPriority": 80,
+      "x": 1200,
+      "y": 512,
+      "w": 40,
+      "h": 88
+    },
+    {
+      "id": "training-dummy",
+      "kind": "dummy",
+      "weightClass": "immovable",
+      "contextPriority": 30,
+      "x": 1640,
+      "y": 504,
+      "w": 44,
+      "h": 96
+    },
+    {
+      "id": "wayhouse-nine",
+      "kind": "wayhouse",
+      "weightClass": "immovable",
+      "contextPriority": 60,
+      "x": 2980,
+      "y": 480,
+      "w": 140,
+      "h": 120
+    }
+  ],
+
+  "spawns": [{ "id": "start", "x": 120, "y": 600 }],
+
+  "checkpoints": [{ "id": "cp-waybell", "x": 1220, "y": 600 }]
+}

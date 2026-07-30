@@ -25,3 +25,6 @@ dist-ssr
 
 # Deploy staging (rebuilt every deploy)
 .deploy-staging
+
+# Verified deploy hash, written by deploy-gh-pages.sh
+.deploy-last-hash.txt
