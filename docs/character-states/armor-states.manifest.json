@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "characterId": "rook",
+  "states": [
+    {
+      "id": "bare",
+      "ordinal": 0,
+      "displayName": "Bare Chassis",
+      "conceptImage": "00-bare-chassis.png",
+      "animationSetId": "rook.bare",
+      "grants": ["basicMovement", "basicFists", "lightGrab"],
+      "visualLayers": ["baseFrame", "headShell", "coreCage"]
+    },
+    {
+      "id": "canopy",
+      "ordinal": 1,
+      "displayName": "Canopy Salvage",
+      "conceptImage": "01-canopy-salvage.png",
+      "animationSetId": "rook.canopy",
+      "grants": ["bracedGrab"],
+      "visualLayers": ["canopyWrap", "leftShoulderSalvage", "rightKneeGuard"]
+    },
+    {
+      "id": "porter",
+      "ordinal": 2,
+      "displayName": "Porter Harness",
+      "conceptImage": "02-porter-harness.png",
+      "animationSetId": "rook.porter",
+      "grants": ["mediumLift"],
+      "visualLayers": ["porterBelt", "porterSatchel", "workForearms", "voiceGrille"]
+    },
+    {
+      "id": "breaker",
+      "ordinal": 3,
+      "displayName": "Breaker Greaves",
+      "conceptImage": "03-breaker-greaves.png",
+      "animationSetId": "rook.breaker",
+      "grants": ["groundPound"],
+      "visualLayers": ["breakerPelvis", "breakerShins", "breakerHeels"]
+    },
+    {
+      "id": "dune",
+      "ordinal": 4,
+      "displayName": "Dune Mantle",
+      "conceptImage": "04-dune-mantle.png",
+      "animationSetId": "rook.dune",
+      "grants": ["sandTravel", "camelRide"],
+      "visualLayers": ["duneScarf", "sandSeals", "dustFilter", "sandSoles", "waterFlask"]
+    },
+    {
+      "id": "crag",
+      "ordinal": 5,
+      "displayName": "Crag Climber",
+      "conceptImage": "05-crag-climber.png",
+      "animationSetId": "rook.crag",
+      "grants": ["surfaceClimb"],
+      "visualLayers": ["climbYoke", "cableSpool", "handClaws", "toeSpikes"]
+    },
+    {
+      "id": "duelist",
+      "ordinal": 6,
+      "displayName": "Duelist Harness",
+      "conceptImage": "06-duelist-harness.png",
+      "animationSetId": "rook.duelist",
+      "grants": ["roadblade"],
+      "visualLayers": ["duelistChest", "leftBracer", "roadblade", "splitScarf"]
+    },
+    {
+      "id": "rider",
+      "ordinal": 7,
+      "displayName": "Rider Rig",
+      "conceptImage": "07-rider-rig.png",
+      "animationSetId": "rook.rider",
+      "grants": ["horseRide"],
+      "visualLayers": ["riderHips", "riderThighs", "saddleLock", "calfGrips"]
+    },
+    {
+      "id": "ranger",
+      "ordinal": 8,
+      "displayName": "Metropolitan Ranger Shell",
+      "conceptImage": "08-ranger-shell.png",
+      "animationSetId": "rook.ranger",
+      "grants": ["sparkPistol"],
+      "visualLayers": ["rangerTorso", "rightShoulder", "forearmSight", "sparkPistol", "capacitor"]
+    },
+    {
+      "id": "cinderbound",
+      "ordinal": 9,
+      "displayName": "Cinderbound Final Form",
+      "conceptImage": "09-cinderbound-final-form.png",
+      "animationSetId": "rook.cinderbound",
+      "grants": ["heatSeal", "airBrake"],
+      "visualLayers": ["furnaceHarness", "sealedJoints", "heatExchanger", "furnaceGuards"]
+    }
+  ]
+}

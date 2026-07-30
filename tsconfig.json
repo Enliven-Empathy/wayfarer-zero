@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    "module": "esnext",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+
+    /* TypeScript 7 defaults `types` to []. It must be listed explicitly or
+       `import.meta.env` and the Vite client types are simply absent.
+       Deliberately NOT listing "phaser": its types/index.d.ts references four
+       Spine declaration files the package does not ship. Resolving Phaser
+       through the module specifier alone (via exports.types) avoids them.
+
+       "node" is here for the test suite and the two config files, which do
+       legitimately read the filesystem. It does NOT license core to use Node
+       APIs — tests/guards/core-boundary.test.ts forbids `node:*` imports under
+       src/core explicitly, which is a tighter guarantee than a tsconfig split
+       would give and costs one array entry instead of a second project. */
+    "types": ["vite/client", "node"],
+    "allowArbitraryExtensions": true,
+
+    /* Mandatory, not a preference: phaser.d.ts is ~8 MB of generated
+       declarations. Without this, every typecheck pays to re-verify it. */
+    "skipLibCheck": true,
+
+    /* Bundler mode. TS 7 removed moduleResolution "node" / "node10" / "classic". */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* `strict` is TS 7's default. Written out anyway as documentation — the
+       bible mandates strict mode, and a silent default is not a contract. */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Bans `enum`, `namespace`, and constructor parameter properties. A design
+       constraint, not a nit: both player state machines are `as const` tables
+       plus string-literal unions, which keeps them data-drivable,
+       JSON-serialisable and trivially testable. Decided at F0 so it can never
+       be discovered halfway through a milestone. */
+    "erasableSyntaxOnly": true,
+
+    /* TS 7 removed `baseUrl`. Paths are project-root relative and are mirrored
+       in vite.config.ts + vitest.config.ts `resolve.alias` — never let them drift. */
+    "paths": {
+      "@core/*": ["./src/core/*"],
+      "@game/*": ["./src/game/*"],
+      "@content/*": ["./src/content/*"]
+    }
+  },
+  "include": ["src", "tests", "vite.config.ts", "vitest.config.ts"]
+}
