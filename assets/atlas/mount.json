@@ -1,0 +1,203 @@
+{
+  "frames": {
+    "mount.camelIdle": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 144,
+        "h": 144
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 144,
+        "h": 144
+      },
+      "sourceSize": {
+        "w": 144,
+        "h": 144
+      }
+    },
+    "mount.camelWalk": {
+      "frame": {
+        "x": 148,
+        "y": 2,
+        "w": 144,
+        "h": 144
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 144,
+        "h": 144
+      },
+      "sourceSize": {
+        "w": 144,
+        "h": 144
+      }
+    },
+    "mount.camelGallop": {
+      "frame": {
+        "x": 294,
+        "y": 2,
+        "w": 144,
+        "h": 144
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 144,
+        "h": 144
+      },
+      "sourceSize": {
+        "w": 144,
+        "h": 144
+      }
+    },
+    "mount.camelLeap": {
+      "frame": {
+        "x": 440,
+        "y": 2,
+        "w": 144,
+        "h": 144
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 144,
+        "h": 144
+      },
+      "sourceSize": {
+        "w": 144,
+        "h": 144
+      }
+    },
+    "mount.horseIdle": {
+      "frame": {
+        "x": 586,
+        "y": 2,
+        "w": 144,
+        "h": 144
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 144,
+        "h": 144
+      },
+      "sourceSize": {
+        "w": 144,
+        "h": 144
+      }
+    },
+    "mount.horseWalk": {
+      "frame": {
+        "x": 732,
+        "y": 2,
+        "w": 144,
+        "h": 144
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 144,
+        "h": 144
+      },
+      "sourceSize": {
+        "w": 144,
+        "h": 144
+      }
+    },
+    "mount.horseGallop": {
+      "frame": {
+        "x": 878,
+        "y": 2,
+        "w": 144,
+        "h": 144
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 144,
+        "h": 144
+      },
+      "sourceSize": {
+        "w": 144,
+        "h": 144
+      }
+    },
+    "mount.horseLeap": {
+      "frame": {
+        "x": 1024,
+        "y": 2,
+        "w": 144,
+        "h": 144
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 144,
+        "h": 144
+      },
+      "sourceSize": {
+        "w": 144,
+        "h": 144
+      }
+    }
+  },
+  "animations": {
+    "mount.camelIdle": [
+      "mount.camelIdle"
+    ],
+    "mount.camelWalk": [
+      "mount.camelWalk"
+    ],
+    "mount.camelGallop": [
+      "mount.camelGallop",
+      "mount.camelLeap"
+    ],
+    "mount.camelLeap": [
+      "mount.camelLeap"
+    ],
+    "mount.horseIdle": [
+      "mount.horseIdle"
+    ],
+    "mount.horseWalk": [
+      "mount.horseWalk"
+    ],
+    "mount.horseGallop": [
+      "mount.horseGallop",
+      "mount.horseLeap"
+    ],
+    "mount.horseLeap": [
+      "mount.horseLeap"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "mount.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1170,
+      "h": 148
+    },
+    "scale": "1"
+  }
+}

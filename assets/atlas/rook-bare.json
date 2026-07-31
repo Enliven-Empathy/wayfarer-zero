@@ -1,0 +1,290 @@
+{
+  "frames": {
+    "rook.bare.idle": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.crouch": {
+      "frame": {
+        "x": 93,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.runContact": {
+      "frame": {
+        "x": 184,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.runStride": {
+      "frame": {
+        "x": 275,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.runPass": {
+      "frame": {
+        "x": 366,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.dive": {
+      "frame": {
+        "x": 457,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.ledgeHang": {
+      "frame": {
+        "x": 548,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.ledgeHangPull": {
+      "frame": {
+        "x": 639,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.landing": {
+      "frame": {
+        "x": 730,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.crouchLow": {
+      "frame": {
+        "x": 821,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.punch": {
+      "frame": {
+        "x": 912,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    },
+    "rook.bare.reachGrab": {
+      "frame": {
+        "x": 1003,
+        "y": 2,
+        "w": 89,
+        "h": 139
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 139
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 139
+      }
+    }
+  },
+  "animations": {
+    "rook.bare.idle": [
+      "rook.bare.idle"
+    ],
+    "rook.bare.run": [
+      "rook.bare.runContact",
+      "rook.bare.runStride",
+      "rook.bare.runPass"
+    ],
+    "rook.bare.crouch": [
+      "rook.bare.crouch"
+    ],
+    "rook.bare.crouchLow": [
+      "rook.bare.crouchLow"
+    ],
+    "rook.bare.dive": [
+      "rook.bare.dive"
+    ],
+    "rook.bare.ledgeHang": [
+      "rook.bare.ledgeHang",
+      "rook.bare.ledgeHangPull"
+    ],
+    "rook.bare.ledgeClimb": [
+      "rook.bare.ledgeHangPull"
+    ],
+    "rook.bare.landing": [
+      "rook.bare.landing"
+    ],
+    "rook.bare.punch": [
+      "rook.bare.punch"
+    ],
+    "rook.bare.reachGrab": [
+      "rook.bare.reachGrab"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "rook-bare.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1094,
+      "h": 143
+    },
+    "scale": "1"
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "frames": {
+    "rook.vinebound.sword.prowlIdle": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.crouchLunge": {
+      "frame": {
+        "x": 154,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.airborne": {
+      "frame": {
+        "x": 306,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.ledgeHang": {
+      "frame": {
+        "x": 458,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.hangSwing": {
+      "frame": {
+        "x": 610,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.crouchDeep": {
+      "frame": {
+        "x": 762,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.swordLow": {
+      "frame": {
+        "x": 914,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.swordGuard": {
+      "frame": {
+        "x": 1066,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.swordOverhead": {
+      "frame": {
+        "x": 1218,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.swordHigh": {
+      "frame": {
+        "x": 1370,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.swordSlash": {
+      "frame": {
+        "x": 1522,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    },
+    "rook.vinebound.sword.swordThrust": {
+      "frame": {
+        "x": 1674,
+        "y": 2,
+        "w": 150,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 132
+      }
+    }
+  },
+  "animations": {
+    "rook.vinebound.sword.swordReady": [
+      "rook.vinebound.sword.swordGuard"
+    ],
+    "rook.vinebound.sword.swordLow": [
+      "rook.vinebound.sword.swordLow"
+    ],
+    "rook.vinebound.sword.swordSlashA": [
+      "rook.vinebound.sword.swordOverhead",
+      "rook.vinebound.sword.swordSlash"
+    ],
+    "rook.vinebound.sword.swordSlashB": [
+      "rook.vinebound.sword.swordHigh",
+      "rook.vinebound.sword.swordSlash"
+    ],
+    "rook.vinebound.sword.swordThrust": [
+      "rook.vinebound.sword.swordThrust"
+    ],
+    "rook.vinebound.sword.prowl": [
+      "rook.vinebound.sword.prowlIdle"
+    ],
+    "rook.vinebound.sword.hangSwing": [
+      "rook.vinebound.sword.ledgeHang",
+      "rook.vinebound.sword.hangSwing"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "rook-vinebound-sword.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1826,
+      "h": 136
+    },
+    "scale": "1"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "rook.vinebound",
+  "image": "rook-vinebound.png",
+  "atlas": "rook-vinebound.json",
+  "anchor": {
+    "x": 48,
+    "y": 107,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 97,
+    "h": 149
+  },
+  "poses": [
+    "idleNeutral",
+    "idleCompression",
+    "runContact",
+    "runPassing",
+    "runHigh",
+    "runRecoil",
+    "jumpRise",
+    "apex",
+    "fall",
+    "crouch",
+    "fistExtension",
+    "ledgeHang"
+  ],
+  "animations": {
+    "idle": {
+      "key": "rook.vinebound.idle",
+      "frameRate": 0.8,
+      "repeat": -1,
+      "frames": [
+        "idleNeutral",
+        "idleCompression"
+      ]
+    },
+    "run": {
+      "key": "rook.vinebound.run",
+      "frameRate": 12,
+      "repeat": -1,
+      "frames": [
+        "runContact",
+        "runPassing",
+        "runHigh",
+        "runRecoil"
+      ]
+    },
+    "crouch": {
+      "key": "rook.vinebound.crouch",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "crouch"
+      ]
+    },
+    "crouchLow": {
+      "key": "rook.vinebound.crouchLow",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "crouch"
+      ]
+    },
+    "landing": {
+      "key": "rook.vinebound.landing",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "crouch"
+      ]
+    },
+    "ledgeHang": {
+      "key": "rook.vinebound.ledgeHang",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "ledgeHang"
+      ]
+    },
+    "ledgeClimb": {
+      "key": "rook.vinebound.ledgeClimb",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "ledgeHang"
+      ]
+    },
+    "punch": {
+      "key": "rook.vinebound.punch",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "fistExtension"
+      ]
+    },
+    "reachGrab": {
+      "key": "rook.vinebound.reachGrab",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "fistExtension"
+      ]
+    },
+    "dive": {
+      "key": "rook.vinebound.dive",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "fall"
+      ]
+    }
+  }
+}

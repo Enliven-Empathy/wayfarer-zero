@@ -1,0 +1,89 @@
+{
+  "id": "rook.vinebound.sword",
+  "image": "rook-vinebound-sword.png",
+  "atlas": "rook-vinebound-sword.json",
+  "anchor": {
+    "x": 60,
+    "y": 103,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 150,
+    "h": 132
+  },
+  "poses": [
+    "prowlIdle",
+    "crouchLunge",
+    "airborne",
+    "ledgeHang",
+    "hangSwing",
+    "crouchDeep",
+    "swordLow",
+    "swordGuard",
+    "swordOverhead",
+    "swordHigh",
+    "swordSlash",
+    "swordThrust"
+  ],
+  "animations": {
+    "swordReady": {
+      "key": "rook.vinebound.sword.swordReady",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "swordGuard"
+      ]
+    },
+    "swordLow": {
+      "key": "rook.vinebound.sword.swordLow",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "swordLow"
+      ]
+    },
+    "swordSlashA": {
+      "key": "rook.vinebound.sword.swordSlashA",
+      "frameRate": 9,
+      "repeat": 0,
+      "frames": [
+        "swordOverhead",
+        "swordSlash"
+      ]
+    },
+    "swordSlashB": {
+      "key": "rook.vinebound.sword.swordSlashB",
+      "frameRate": 9,
+      "repeat": 0,
+      "frames": [
+        "swordHigh",
+        "swordSlash"
+      ]
+    },
+    "swordThrust": {
+      "key": "rook.vinebound.sword.swordThrust",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "swordThrust"
+      ]
+    },
+    "prowl": {
+      "key": "rook.vinebound.sword.prowl",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "prowlIdle"
+      ]
+    },
+    "hangSwing": {
+      "key": "rook.vinebound.sword.hangSwing",
+      "frameRate": 2,
+      "repeat": -1,
+      "frames": [
+        "ledgeHang",
+        "hangSwing"
+      ]
+    }
+  }
+}

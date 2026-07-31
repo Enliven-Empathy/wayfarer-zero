@@ -1,0 +1,113 @@
+{
+  "id": "rook.bare",
+  "image": "rook-bare.png",
+  "atlas": "rook-bare.json",
+  "anchor": {
+    "x": 45,
+    "y": 107,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 89,
+    "h": 139
+  },
+  "poses": [
+    "idle",
+    "crouch",
+    "runContact",
+    "runStride",
+    "runPass",
+    "dive",
+    "ledgeHang",
+    "ledgeHangPull",
+    "landing",
+    "crouchLow",
+    "punch",
+    "reachGrab"
+  ],
+  "animations": {
+    "idle": {
+      "key": "rook.bare.idle",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "idle"
+      ]
+    },
+    "run": {
+      "key": "rook.bare.run",
+      "frameRate": 12,
+      "repeat": -1,
+      "frames": [
+        "runContact",
+        "runStride",
+        "runPass"
+      ]
+    },
+    "crouch": {
+      "key": "rook.bare.crouch",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "crouch"
+      ]
+    },
+    "crouchLow": {
+      "key": "rook.bare.crouchLow",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "crouchLow"
+      ]
+    },
+    "dive": {
+      "key": "rook.bare.dive",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "dive"
+      ]
+    },
+    "ledgeHang": {
+      "key": "rook.bare.ledgeHang",
+      "frameRate": 2,
+      "repeat": -1,
+      "frames": [
+        "ledgeHang",
+        "ledgeHangPull"
+      ]
+    },
+    "ledgeClimb": {
+      "key": "rook.bare.ledgeClimb",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "ledgeHangPull"
+      ]
+    },
+    "landing": {
+      "key": "rook.bare.landing",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "landing"
+      ]
+    },
+    "punch": {
+      "key": "rook.bare.punch",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "punch"
+      ]
+    },
+    "reachGrab": {
+      "key": "rook.bare.reachGrab",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "reachGrab"
+      ]
+    }
+  }
+}

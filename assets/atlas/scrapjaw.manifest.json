@@ -1,0 +1,76 @@
+{
+  "id": "scrapjaw",
+  "image": "scrapjaw.png",
+  "atlas": "scrapjaw.json",
+  "anchor": {
+    "x": 79,
+    "y": 92,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 167,
+    "h": 93
+  },
+  "poses": [
+    "idle",
+    "patrolContact",
+    "patrolPassing",
+    "patrolRecoil",
+    "windup",
+    "lunge",
+    "stagger",
+    "dismantled"
+  ],
+  "animations": {
+    "idle": {
+      "key": "scrapjaw.idle",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "idle"
+      ]
+    },
+    "patrol": {
+      "key": "scrapjaw.patrol",
+      "frameRate": 7,
+      "repeat": -1,
+      "frames": [
+        "patrolContact",
+        "patrolPassing",
+        "patrolRecoil"
+      ]
+    },
+    "windup": {
+      "key": "scrapjaw.windup",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "windup"
+      ]
+    },
+    "lunge": {
+      "key": "scrapjaw.lunge",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "lunge"
+      ]
+    },
+    "stagger": {
+      "key": "scrapjaw.stagger",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "stagger"
+      ]
+    },
+    "dismantled": {
+      "key": "scrapjaw.dismantled",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "dismantled"
+      ]
+    }
+  }
+}

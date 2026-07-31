@@ -1,0 +1,199 @@
+{
+  "frames": {
+    "rook.bare.act.guard": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 132,
+        "h": 120
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 132,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 132,
+        "h": 120
+      }
+    },
+    "rook.bare.act.guardPerfect": {
+      "frame": {
+        "x": 136,
+        "y": 2,
+        "w": 132,
+        "h": 120
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 132,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 132,
+        "h": 120
+      }
+    },
+    "rook.bare.act.dodgeRoll": {
+      "frame": {
+        "x": 270,
+        "y": 2,
+        "w": 132,
+        "h": 120
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 132,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 132,
+        "h": 120
+      }
+    },
+    "rook.bare.act.hurt": {
+      "frame": {
+        "x": 404,
+        "y": 2,
+        "w": 132,
+        "h": 120
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 132,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 132,
+        "h": 120
+      }
+    },
+    "rook.bare.act.heavyWindup": {
+      "frame": {
+        "x": 538,
+        "y": 2,
+        "w": 132,
+        "h": 120
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 132,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 132,
+        "h": 120
+      }
+    },
+    "rook.bare.act.heavyStrike": {
+      "frame": {
+        "x": 672,
+        "y": 2,
+        "w": 132,
+        "h": 120
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 132,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 132,
+        "h": 120
+      }
+    },
+    "rook.bare.act.poundDive": {
+      "frame": {
+        "x": 806,
+        "y": 2,
+        "w": 132,
+        "h": 120
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 132,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 132,
+        "h": 120
+      }
+    },
+    "rook.bare.act.poundImpact": {
+      "frame": {
+        "x": 940,
+        "y": 2,
+        "w": 132,
+        "h": 120
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 132,
+        "h": 120
+      },
+      "sourceSize": {
+        "w": 132,
+        "h": 120
+      }
+    }
+  },
+  "animations": {
+    "rook.bare.act.guard": [
+      "rook.bare.act.guard"
+    ],
+    "rook.bare.act.guardPerfect": [
+      "rook.bare.act.guardPerfect"
+    ],
+    "rook.bare.act.dodge": [
+      "rook.bare.act.dodgeRoll"
+    ],
+    "rook.bare.act.hurt": [
+      "rook.bare.act.hurt"
+    ],
+    "rook.bare.act.heavy": [
+      "rook.bare.act.heavyWindup",
+      "rook.bare.act.heavyStrike"
+    ],
+    "rook.bare.act.poundDive": [
+      "rook.bare.act.poundDive"
+    ],
+    "rook.bare.act.poundImpact": [
+      "rook.bare.act.poundImpact"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "rook-bare-act.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1074,
+      "h": 124
+    },
+    "scale": "1"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "rook.bare.air",
+  "image": "rook-bare-air.png",
+  "atlas": "rook-bare-air.json",
+  "anchor": {
+    "x": 47,
+    "y": 107,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 94,
+    "h": 147
+  },
+  "poses": [
+    "idleNeutral",
+    "idleCompression",
+    "runContact",
+    "runPassing",
+    "runHigh",
+    "runRecoil",
+    "jumpRise",
+    "apex",
+    "fall",
+    "crouch",
+    "fistExtension",
+    "ledgeHang"
+  ],
+  "animations": {
+    "jumpRise": {
+      "key": "rook.bare.air.jumpRise",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "jumpRise"
+      ]
+    },
+    "apex": {
+      "key": "rook.bare.air.apex",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "apex"
+      ]
+    },
+    "fall": {
+      "key": "rook.bare.air.fall",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "fall"
+      ]
+    },
+    "land": {
+      "key": "rook.bare.air.land",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "crouch"
+      ]
+    }
+  }
+}

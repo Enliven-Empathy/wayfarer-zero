@@ -1,0 +1,269 @@
+{
+  "frames": {
+    "rook.bare.air.idleNeutral": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.idleCompression": {
+      "frame": {
+        "x": 98,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.runContact": {
+      "frame": {
+        "x": 194,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.runPassing": {
+      "frame": {
+        "x": 290,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.runHigh": {
+      "frame": {
+        "x": 386,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.runRecoil": {
+      "frame": {
+        "x": 482,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.jumpRise": {
+      "frame": {
+        "x": 578,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.apex": {
+      "frame": {
+        "x": 674,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.fall": {
+      "frame": {
+        "x": 770,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.crouch": {
+      "frame": {
+        "x": 866,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.fistExtension": {
+      "frame": {
+        "x": 962,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    },
+    "rook.bare.air.ledgeHang": {
+      "frame": {
+        "x": 1058,
+        "y": 2,
+        "w": 94,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 94,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 94,
+        "h": 147
+      }
+    }
+  },
+  "animations": {
+    "rook.bare.air.jumpRise": [
+      "rook.bare.air.jumpRise"
+    ],
+    "rook.bare.air.apex": [
+      "rook.bare.air.apex"
+    ],
+    "rook.bare.air.fall": [
+      "rook.bare.air.fall"
+    ],
+    "rook.bare.air.land": [
+      "rook.bare.air.crouch"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "rook-bare-air.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1154,
+      "h": 151
+    },
+    "scale": "1"
+  }
+}

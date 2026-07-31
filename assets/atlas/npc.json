@@ -1,0 +1,281 @@
+{
+  "frames": {
+    "npc.maraA": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.maraB": {
+      "frame": {
+        "x": 96,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.cartographerA": {
+      "frame": {
+        "x": 190,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.cartographerB": {
+      "frame": {
+        "x": 284,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.sadiqA": {
+      "frame": {
+        "x": 378,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.sadiqB": {
+      "frame": {
+        "x": 472,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.orrinA": {
+      "frame": {
+        "x": 566,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.orrinB": {
+      "frame": {
+        "x": 660,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.seraA": {
+      "frame": {
+        "x": 754,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.seraB": {
+      "frame": {
+        "x": 848,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.ivoA": {
+      "frame": {
+        "x": 942,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    },
+    "npc.ivoB": {
+      "frame": {
+        "x": 1036,
+        "y": 2,
+        "w": 92,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 126
+      }
+    }
+  },
+  "animations": {
+    "npc.mara": [
+      "npc.maraA",
+      "npc.maraB"
+    ],
+    "npc.cartographer": [
+      "npc.cartographerA",
+      "npc.cartographerB"
+    ],
+    "npc.sadiq": [
+      "npc.sadiqA",
+      "npc.sadiqB"
+    ],
+    "npc.orrin": [
+      "npc.orrinA",
+      "npc.orrinB"
+    ],
+    "npc.sera": [
+      "npc.seraA",
+      "npc.seraB"
+    ],
+    "npc.ivo": [
+      "npc.ivoA",
+      "npc.ivoB"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "npc.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1130,
+      "h": 130
+    },
+    "scale": "1"
+  }
+}

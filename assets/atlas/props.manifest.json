@@ -1,0 +1,90 @@
+{
+  "id": "props",
+  "image": "props.png",
+  "atlas": "props.json",
+  "anchor": {
+    "x": 62,
+    "y": 65,
+    "kind": "center"
+  },
+  "frameSize": {
+    "w": 124,
+    "h": 130
+  },
+  "poses": [
+    "pistol",
+    "pistolPickup",
+    "capacitor",
+    "boltLarge",
+    "boltSmall",
+    "relayIdle",
+    "relayActive",
+    "relayBroken"
+  ],
+  "animations": {
+    "pistol": {
+      "key": "props.pistol",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "pistol"
+      ]
+    },
+    "pistolPickup": {
+      "key": "props.pistolPickup",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "pistolPickup"
+      ]
+    },
+    "capacitor": {
+      "key": "props.capacitor",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "capacitor"
+      ]
+    },
+    "boltLarge": {
+      "key": "props.boltLarge",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "boltLarge"
+      ]
+    },
+    "boltSmall": {
+      "key": "props.boltSmall",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "boltSmall"
+      ]
+    },
+    "relayIdle": {
+      "key": "props.relayIdle",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "relayIdle"
+      ]
+    },
+    "relayActive": {
+      "key": "props.relayActive",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "relayActive"
+      ]
+    },
+    "relayBroken": {
+      "key": "props.relayBroken",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "relayBroken"
+      ]
+    }
+  }
+}

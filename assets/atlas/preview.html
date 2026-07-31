@@ -1,0 +1,1355 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Wayfarer atlas preview</title>
+<style>
+  body { margin:0; background:#141821; color:#d7dbe4; font:13px/1.5 ui-monospace,monospace; padding:24px; }
+  h1 { font-size:18px; margin:0 0 4px; color:#4fd6e8; letter-spacing:.08em; }
+  p.sub { margin:0 0 24px; opacity:.6; }
+  section { margin-bottom:32px; }
+  h2 { font-size:14px; margin:0 0 10px; color:#d9a441; font-weight:normal; }
+  .row { display:flex; flex-wrap:wrap; gap:14px; }
+  .cell { background:#1b202b; border:1px solid #2b3242; border-radius:6px; padding:8px; }
+  .cell figcaption { text-align:center; opacity:.75; margin-top:6px; font-size:11px; }
+  canvas { display:block; image-rendering:auto; }
+  label { display:inline-flex; align-items:center; gap:8px; margin-bottom:14px; opacity:.8; }
+</style>
+<h1>WAYFARER ZERO — atlas preview</h1>
+<p class="sub">Amber line = shared foot anchor. Cyan line = anchor X. Any bob or slide against these means a frame's pivot is wrong.</p>
+<label><input type="checkbox" id="guides" checked> show guides</label>
+<label style="margin-left:20px">speed <input type="range" id="speed" min="10" max="200" value="100"></label>
+<div id="out"></div>
+<script>
+const MANIFESTS_ATLAS = {"mount.json":{"frames":{"mount.camelIdle":{"frame":{"x":2,"y":2,"w":144,"h":144},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":144,"h":144},"sourceSize":{"w":144,"h":144}},"mount.camelWalk":{"frame":{"x":148,"y":2,"w":144,"h":144},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":144,"h":144},"sourceSize":{"w":144,"h":144}},"mount.camelGallop":{"frame":{"x":294,"y":2,"w":144,"h":144},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":144,"h":144},"sourceSize":{"w":144,"h":144}},"mount.camelLeap":{"frame":{"x":440,"y":2,"w":144,"h":144},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":144,"h":144},"sourceSize":{"w":144,"h":144}},"mount.horseIdle":{"frame":{"x":586,"y":2,"w":144,"h":144},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":144,"h":144},"sourceSize":{"w":144,"h":144}},"mount.horseWalk":{"frame":{"x":732,"y":2,"w":144,"h":144},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":144,"h":144},"sourceSize":{"w":144,"h":144}},"mount.horseGallop":{"frame":{"x":878,"y":2,"w":144,"h":144},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":144,"h":144},"sourceSize":{"w":144,"h":144}},"mount.horseLeap":{"frame":{"x":1024,"y":2,"w":144,"h":144},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":144,"h":144},"sourceSize":{"w":144,"h":144}}},"animations":{"mount.camelIdle":["mount.camelIdle"],"mount.camelWalk":["mount.camelWalk"],"mount.camelGallop":["mount.camelGallop","mount.camelLeap"],"mount.camelLeap":["mount.camelLeap"],"mount.horseIdle":["mount.horseIdle"],"mount.horseWalk":["mount.horseWalk"],"mount.horseGallop":["mount.horseGallop","mount.horseLeap"],"mount.horseLeap":["mount.horseLeap"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"mount.png","format":"RGBA8888","size":{"w":1170,"h":148},"scale":"1"}},"npc.json":{"frames":{"npc.maraA":{"frame":{"x":2,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.maraB":{"frame":{"x":96,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.cartographerA":{"frame":{"x":190,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.cartographerB":{"frame":{"x":284,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.sadiqA":{"frame":{"x":378,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.sadiqB":{"frame":{"x":472,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.orrinA":{"frame":{"x":566,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.orrinB":{"frame":{"x":660,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.seraA":{"frame":{"x":754,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.seraB":{"frame":{"x":848,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.ivoA":{"frame":{"x":942,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}},"npc.ivoB":{"frame":{"x":1036,"y":2,"w":92,"h":126},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":92,"h":126},"sourceSize":{"w":92,"h":126}}},"animations":{"npc.mara":["npc.maraA","npc.maraB"],"npc.cartographer":["npc.cartographerA","npc.cartographerB"],"npc.sadiq":["npc.sadiqA","npc.sadiqB"],"npc.orrin":["npc.orrinA","npc.orrinB"],"npc.sera":["npc.seraA","npc.seraB"],"npc.ivo":["npc.ivoA","npc.ivoB"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"npc.png","format":"RGBA8888","size":{"w":1130,"h":130},"scale":"1"}},"props.json":{"frames":{"props.pistol":{"frame":{"x":2,"y":2,"w":124,"h":130},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":124,"h":130},"sourceSize":{"w":124,"h":130}},"props.pistolPickup":{"frame":{"x":128,"y":2,"w":124,"h":130},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":124,"h":130},"sourceSize":{"w":124,"h":130}},"props.capacitor":{"frame":{"x":254,"y":2,"w":124,"h":130},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":124,"h":130},"sourceSize":{"w":124,"h":130}},"props.boltLarge":{"frame":{"x":380,"y":2,"w":124,"h":130},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":124,"h":130},"sourceSize":{"w":124,"h":130}},"props.boltSmall":{"frame":{"x":506,"y":2,"w":124,"h":130},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":124,"h":130},"sourceSize":{"w":124,"h":130}},"props.relayIdle":{"frame":{"x":632,"y":2,"w":124,"h":130},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":124,"h":130},"sourceSize":{"w":124,"h":130}},"props.relayActive":{"frame":{"x":758,"y":2,"w":124,"h":130},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":124,"h":130},"sourceSize":{"w":124,"h":130}},"props.relayBroken":{"frame":{"x":884,"y":2,"w":124,"h":130},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":124,"h":130},"sourceSize":{"w":124,"h":130}}},"animations":{"props.pistol":["props.pistol"],"props.pistolPickup":["props.pistolPickup"],"props.capacitor":["props.capacitor"],"props.boltLarge":["props.boltLarge"],"props.boltSmall":["props.boltSmall"],"props.relayIdle":["props.relayIdle"],"props.relayActive":["props.relayActive"],"props.relayBroken":["props.relayBroken"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"props.png","format":"RGBA8888","size":{"w":1010,"h":134},"scale":"1"}},"rook-bare-act.json":{"frames":{"rook.bare.act.guard":{"frame":{"x":2,"y":2,"w":132,"h":120},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":132,"h":120},"sourceSize":{"w":132,"h":120}},"rook.bare.act.guardPerfect":{"frame":{"x":136,"y":2,"w":132,"h":120},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":132,"h":120},"sourceSize":{"w":132,"h":120}},"rook.bare.act.dodgeRoll":{"frame":{"x":270,"y":2,"w":132,"h":120},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":132,"h":120},"sourceSize":{"w":132,"h":120}},"rook.bare.act.hurt":{"frame":{"x":404,"y":2,"w":132,"h":120},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":132,"h":120},"sourceSize":{"w":132,"h":120}},"rook.bare.act.heavyWindup":{"frame":{"x":538,"y":2,"w":132,"h":120},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":132,"h":120},"sourceSize":{"w":132,"h":120}},"rook.bare.act.heavyStrike":{"frame":{"x":672,"y":2,"w":132,"h":120},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":132,"h":120},"sourceSize":{"w":132,"h":120}},"rook.bare.act.poundDive":{"frame":{"x":806,"y":2,"w":132,"h":120},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":132,"h":120},"sourceSize":{"w":132,"h":120}},"rook.bare.act.poundImpact":{"frame":{"x":940,"y":2,"w":132,"h":120},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":132,"h":120},"sourceSize":{"w":132,"h":120}}},"animations":{"rook.bare.act.guard":["rook.bare.act.guard"],"rook.bare.act.guardPerfect":["rook.bare.act.guardPerfect"],"rook.bare.act.dodge":["rook.bare.act.dodgeRoll"],"rook.bare.act.hurt":["rook.bare.act.hurt"],"rook.bare.act.heavy":["rook.bare.act.heavyWindup","rook.bare.act.heavyStrike"],"rook.bare.act.poundDive":["rook.bare.act.poundDive"],"rook.bare.act.poundImpact":["rook.bare.act.poundImpact"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"rook-bare-act.png","format":"RGBA8888","size":{"w":1074,"h":124},"scale":"1"}},"rook-bare-air.json":{"frames":{"rook.bare.air.idleNeutral":{"frame":{"x":2,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.idleCompression":{"frame":{"x":98,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.runContact":{"frame":{"x":194,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.runPassing":{"frame":{"x":290,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.runHigh":{"frame":{"x":386,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.runRecoil":{"frame":{"x":482,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.jumpRise":{"frame":{"x":578,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.apex":{"frame":{"x":674,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.fall":{"frame":{"x":770,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.crouch":{"frame":{"x":866,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.fistExtension":{"frame":{"x":962,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}},"rook.bare.air.ledgeHang":{"frame":{"x":1058,"y":2,"w":94,"h":147},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":94,"h":147},"sourceSize":{"w":94,"h":147}}},"animations":{"rook.bare.air.jumpRise":["rook.bare.air.jumpRise"],"rook.bare.air.apex":["rook.bare.air.apex"],"rook.bare.air.fall":["rook.bare.air.fall"],"rook.bare.air.land":["rook.bare.air.crouch"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"rook-bare-air.png","format":"RGBA8888","size":{"w":1154,"h":151},"scale":"1"}},"rook-bare-combat.json":{"frames":{"rook.bare.combat.guard":{"frame":{"x":2,"y":2,"w":122,"h":124},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":122,"h":124},"sourceSize":{"w":122,"h":124}},"rook.bare.combat.jabImpact":{"frame":{"x":126,"y":2,"w":122,"h":124},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":122,"h":124},"sourceSize":{"w":122,"h":124}},"rook.bare.combat.defeated":{"frame":{"x":250,"y":2,"w":122,"h":124},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":122,"h":124},"sourceSize":{"w":122,"h":124}},"rook.bare.combat.stagger":{"frame":{"x":374,"y":2,"w":122,"h":124},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":122,"h":124},"sourceSize":{"w":122,"h":124}},"rook.bare.combat.windup":{"frame":{"x":498,"y":2,"w":122,"h":124},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":122,"h":124},"sourceSize":{"w":122,"h":124}},"rook.bare.combat.punchExtend":{"frame":{"x":622,"y":2,"w":122,"h":124},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":122,"h":124},"sourceSize":{"w":122,"h":124}},"rook.bare.combat.launched":{"frame":{"x":746,"y":2,"w":122,"h":124},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":122,"h":124},"sourceSize":{"w":122,"h":124}},"rook.bare.combat.downed":{"frame":{"x":870,"y":2,"w":122,"h":124},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":122,"h":124},"sourceSize":{"w":122,"h":124}}},"animations":{"rook.bare.combat.guard":["rook.bare.combat.guard"],"rook.bare.combat.jab":["rook.bare.combat.windup","rook.bare.combat.jabImpact"],"rook.bare.combat.punch":["rook.bare.combat.windup","rook.bare.combat.punchExtend"],"rook.bare.combat.stagger":["rook.bare.combat.stagger"],"rook.bare.combat.launched":["rook.bare.combat.launched"],"rook.bare.combat.downed":["rook.bare.combat.downed"],"rook.bare.combat.defeated":["rook.bare.combat.defeated"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"rook-bare-combat.png","format":"RGBA8888","size":{"w":994,"h":128},"scale":"1"}},"rook-bare.json":{"frames":{"rook.bare.idle":{"frame":{"x":2,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.crouch":{"frame":{"x":93,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.runContact":{"frame":{"x":184,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.runStride":{"frame":{"x":275,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.runPass":{"frame":{"x":366,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.dive":{"frame":{"x":457,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.ledgeHang":{"frame":{"x":548,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.ledgeHangPull":{"frame":{"x":639,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.landing":{"frame":{"x":730,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.crouchLow":{"frame":{"x":821,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.punch":{"frame":{"x":912,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}},"rook.bare.reachGrab":{"frame":{"x":1003,"y":2,"w":89,"h":139},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":89,"h":139},"sourceSize":{"w":89,"h":139}}},"animations":{"rook.bare.idle":["rook.bare.idle"],"rook.bare.run":["rook.bare.runContact","rook.bare.runStride","rook.bare.runPass"],"rook.bare.crouch":["rook.bare.crouch"],"rook.bare.crouchLow":["rook.bare.crouchLow"],"rook.bare.dive":["rook.bare.dive"],"rook.bare.ledgeHang":["rook.bare.ledgeHang","rook.bare.ledgeHangPull"],"rook.bare.ledgeClimb":["rook.bare.ledgeHangPull"],"rook.bare.landing":["rook.bare.landing"],"rook.bare.punch":["rook.bare.punch"],"rook.bare.reachGrab":["rook.bare.reachGrab"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"rook-bare.png","format":"RGBA8888","size":{"w":1094,"h":143},"scale":"1"}},"rook-vinebound-act.json":{"frames":{"rook.vinebound.act.guard":{"frame":{"x":2,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.guardPerfect":{"frame":{"x":134,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.dodgeRoll":{"frame":{"x":266,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.hurt":{"frame":{"x":398,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.heavyWindup":{"frame":{"x":530,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.heavyStrike":{"frame":{"x":662,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.poundDive":{"frame":{"x":794,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.poundImpact":{"frame":{"x":926,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.pistolIdle":{"frame":{"x":1058,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.pistolFire":{"frame":{"x":1190,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.pistolRun":{"frame":{"x":1322,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}},"rook.vinebound.act.pistolAir":{"frame":{"x":1454,"y":2,"w":130,"h":128},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":130,"h":128},"sourceSize":{"w":130,"h":128}}},"animations":{"rook.vinebound.act.guard":["rook.vinebound.act.guard"],"rook.vinebound.act.guardPerfect":["rook.vinebound.act.guardPerfect"],"rook.vinebound.act.dodge":["rook.vinebound.act.dodgeRoll"],"rook.vinebound.act.hurt":["rook.vinebound.act.hurt"],"rook.vinebound.act.heavy":["rook.vinebound.act.heavyWindup","rook.vinebound.act.heavyStrike"],"rook.vinebound.act.poundDive":["rook.vinebound.act.poundDive"],"rook.vinebound.act.poundImpact":["rook.vinebound.act.poundImpact"],"rook.vinebound.act.pistolIdle":["rook.vinebound.act.pistolIdle"],"rook.vinebound.act.pistolFire":["rook.vinebound.act.pistolFire"],"rook.vinebound.act.pistolRun":["rook.vinebound.act.pistolRun"],"rook.vinebound.act.pistolAir":["rook.vinebound.act.pistolAir"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"rook-vinebound-act.png","format":"RGBA8888","size":{"w":1586,"h":132},"scale":"1"}},"rook-vinebound-air.json":{"frames":{"rook.vinebound.air.idleNeutral":{"frame":{"x":2,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.idleCompression":{"frame":{"x":101,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.runContact":{"frame":{"x":200,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.runPassing":{"frame":{"x":299,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.runHigh":{"frame":{"x":398,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.runRecoil":{"frame":{"x":497,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.jumpRise":{"frame":{"x":596,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.apex":{"frame":{"x":695,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.fall":{"frame":{"x":794,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.crouch":{"frame":{"x":893,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.fistExtension":{"frame":{"x":992,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.air.ledgeHang":{"frame":{"x":1091,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}}},"animations":{"rook.vinebound.air.jumpRise":["rook.vinebound.air.jumpRise"],"rook.vinebound.air.apex":["rook.vinebound.air.apex"],"rook.vinebound.air.fall":["rook.vinebound.air.fall"],"rook.vinebound.air.land":["rook.vinebound.air.crouch"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"rook-vinebound-air.png","format":"RGBA8888","size":{"w":1190,"h":153},"scale":"1"}},"rook-vinebound-combat.json":{"frames":{"rook.vinebound.combat.guard":{"frame":{"x":2,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.jabImpact":{"frame":{"x":115,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.defeated":{"frame":{"x":228,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.stagger":{"frame":{"x":341,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.windup":{"frame":{"x":454,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.punchExtend":{"frame":{"x":567,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.launched":{"frame":{"x":680,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.downed":{"frame":{"x":793,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.pistolReady":{"frame":{"x":906,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.pistolFire":{"frame":{"x":1019,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.pistolRun":{"frame":{"x":1132,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}},"rook.vinebound.combat.pistolAdvance":{"frame":{"x":1245,"y":2,"w":111,"h":94},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":111,"h":94},"sourceSize":{"w":111,"h":94}}},"animations":{"rook.vinebound.combat.guard":["rook.vinebound.combat.guard"],"rook.vinebound.combat.jab":["rook.vinebound.combat.windup","rook.vinebound.combat.jabImpact"],"rook.vinebound.combat.punch":["rook.vinebound.combat.windup","rook.vinebound.combat.punchExtend"],"rook.vinebound.combat.stagger":["rook.vinebound.combat.stagger"],"rook.vinebound.combat.launched":["rook.vinebound.combat.launched"],"rook.vinebound.combat.downed":["rook.vinebound.combat.downed"],"rook.vinebound.combat.defeated":["rook.vinebound.combat.defeated"],"rook.vinebound.combat.pistolIdle":["rook.vinebound.combat.pistolReady"],"rook.vinebound.combat.pistolFire":["rook.vinebound.combat.pistolFire"],"rook.vinebound.combat.pistolRun":["rook.vinebound.combat.pistolRun"],"rook.vinebound.combat.pistolAdvance":["rook.vinebound.combat.pistolAdvance"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"rook-vinebound-combat.png","format":"RGBA8888","size":{"w":1358,"h":98},"scale":"1"}},"rook-vinebound-sword.json":{"frames":{"rook.vinebound.sword.prowlIdle":{"frame":{"x":2,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.crouchLunge":{"frame":{"x":154,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.airborne":{"frame":{"x":306,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.ledgeHang":{"frame":{"x":458,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.hangSwing":{"frame":{"x":610,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.crouchDeep":{"frame":{"x":762,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.swordLow":{"frame":{"x":914,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.swordGuard":{"frame":{"x":1066,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.swordOverhead":{"frame":{"x":1218,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.swordHigh":{"frame":{"x":1370,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.swordSlash":{"frame":{"x":1522,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}},"rook.vinebound.sword.swordThrust":{"frame":{"x":1674,"y":2,"w":150,"h":132},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":150,"h":132},"sourceSize":{"w":150,"h":132}}},"animations":{"rook.vinebound.sword.swordReady":["rook.vinebound.sword.swordGuard"],"rook.vinebound.sword.swordLow":["rook.vinebound.sword.swordLow"],"rook.vinebound.sword.swordSlashA":["rook.vinebound.sword.swordOverhead","rook.vinebound.sword.swordSlash"],"rook.vinebound.sword.swordSlashB":["rook.vinebound.sword.swordHigh","rook.vinebound.sword.swordSlash"],"rook.vinebound.sword.swordThrust":["rook.vinebound.sword.swordThrust"],"rook.vinebound.sword.prowl":["rook.vinebound.sword.prowlIdle"],"rook.vinebound.sword.hangSwing":["rook.vinebound.sword.ledgeHang","rook.vinebound.sword.hangSwing"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"rook-vinebound-sword.png","format":"RGBA8888","size":{"w":1826,"h":136},"scale":"1"}},"rook-vinebound.json":{"frames":{"rook.vinebound.idleNeutral":{"frame":{"x":2,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.idleCompression":{"frame":{"x":101,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.runContact":{"frame":{"x":200,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.runPassing":{"frame":{"x":299,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.runHigh":{"frame":{"x":398,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.runRecoil":{"frame":{"x":497,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.jumpRise":{"frame":{"x":596,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.apex":{"frame":{"x":695,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.fall":{"frame":{"x":794,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.crouch":{"frame":{"x":893,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.fistExtension":{"frame":{"x":992,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}},"rook.vinebound.ledgeHang":{"frame":{"x":1091,"y":2,"w":97,"h":149},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":97,"h":149},"sourceSize":{"w":97,"h":149}}},"animations":{"rook.vinebound.idle":["rook.vinebound.idleNeutral","rook.vinebound.idleCompression"],"rook.vinebound.run":["rook.vinebound.runContact","rook.vinebound.runPassing","rook.vinebound.runHigh","rook.vinebound.runRecoil"],"rook.vinebound.crouch":["rook.vinebound.crouch"],"rook.vinebound.crouchLow":["rook.vinebound.crouch"],"rook.vinebound.landing":["rook.vinebound.crouch"],"rook.vinebound.ledgeHang":["rook.vinebound.ledgeHang"],"rook.vinebound.ledgeClimb":["rook.vinebound.ledgeHang"],"rook.vinebound.punch":["rook.vinebound.fistExtension"],"rook.vinebound.reachGrab":["rook.vinebound.fistExtension"],"rook.vinebound.dive":["rook.vinebound.fall"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"rook-vinebound.png","format":"RGBA8888","size":{"w":1190,"h":153},"scale":"1"}},"scrapjaw.json":{"frames":{"scrapjaw.idle":{"frame":{"x":2,"y":2,"w":167,"h":93},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":167,"h":93},"sourceSize":{"w":167,"h":93}},"scrapjaw.patrolContact":{"frame":{"x":171,"y":2,"w":167,"h":93},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":167,"h":93},"sourceSize":{"w":167,"h":93}},"scrapjaw.patrolPassing":{"frame":{"x":340,"y":2,"w":167,"h":93},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":167,"h":93},"sourceSize":{"w":167,"h":93}},"scrapjaw.patrolRecoil":{"frame":{"x":509,"y":2,"w":167,"h":93},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":167,"h":93},"sourceSize":{"w":167,"h":93}},"scrapjaw.windup":{"frame":{"x":678,"y":2,"w":167,"h":93},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":167,"h":93},"sourceSize":{"w":167,"h":93}},"scrapjaw.lunge":{"frame":{"x":847,"y":2,"w":167,"h":93},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":167,"h":93},"sourceSize":{"w":167,"h":93}},"scrapjaw.stagger":{"frame":{"x":1016,"y":2,"w":167,"h":93},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":167,"h":93},"sourceSize":{"w":167,"h":93}},"scrapjaw.dismantled":{"frame":{"x":1185,"y":2,"w":167,"h":93},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":167,"h":93},"sourceSize":{"w":167,"h":93}}},"animations":{"scrapjaw.idle":["scrapjaw.idle"],"scrapjaw.patrol":["scrapjaw.patrolContact","scrapjaw.patrolPassing","scrapjaw.patrolRecoil"],"scrapjaw.windup":["scrapjaw.windup"],"scrapjaw.lunge":["scrapjaw.lunge"],"scrapjaw.stagger":["scrapjaw.stagger"],"scrapjaw.dismantled":["scrapjaw.dismantled"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"scrapjaw.png","format":"RGBA8888","size":{"w":1354,"h":97},"scale":"1"}},"warden.json":{"frames":{"warden.idle":{"frame":{"x":2,"y":2,"w":163,"h":146},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":163,"h":146},"sourceSize":{"w":163,"h":146}},"warden.walk":{"frame":{"x":167,"y":2,"w":163,"h":146},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":163,"h":146},"sourceSize":{"w":163,"h":146}},"warden.charge":{"frame":{"x":332,"y":2,"w":163,"h":146},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":163,"h":146},"sourceSize":{"w":163,"h":146}},"warden.rootWindup":{"frame":{"x":497,"y":2,"w":163,"h":146},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":163,"h":146},"sourceSize":{"w":163,"h":146}},"warden.rootSlam":{"frame":{"x":662,"y":2,"w":163,"h":146},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":163,"h":146},"sourceSize":{"w":163,"h":146}},"warden.stunned":{"frame":{"x":827,"y":2,"w":163,"h":146},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":163,"h":146},"sourceSize":{"w":163,"h":146}},"warden.enraged":{"frame":{"x":992,"y":2,"w":163,"h":146},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":163,"h":146},"sourceSize":{"w":163,"h":146}},"warden.defeated":{"frame":{"x":1157,"y":2,"w":163,"h":146},"rotated":false,"trimmed":false,"spriteSourceSize":{"x":0,"y":0,"w":163,"h":146},"sourceSize":{"w":163,"h":146}}},"animations":{"warden.idle":["warden.idle"],"warden.walk":["warden.walk"],"warden.charge":["warden.charge"],"warden.rootWindup":["warden.rootWindup"],"warden.rootSlam":["warden.rootSlam"],"warden.stunned":["warden.stunned"],"warden.enraged":["warden.enraged"],"warden.defeated":["warden.defeated"]},"meta":{"app":"wayfarer-atlas-forge","version":"1.0.0","image":"warden.png","format":"RGBA8888","size":{"w":1322,"h":150},"scale":"1"}}};
+const MANIFESTS = [
+  {
+    "id": "mount",
+    "image": "mount.png",
+    "atlas": "mount.json",
+    "anchor": {
+      "x": 72,
+      "y": 143,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 144,
+      "h": 144
+    },
+    "poses": [
+      "camelIdle",
+      "camelWalk",
+      "camelGallop",
+      "camelLeap",
+      "horseIdle",
+      "horseWalk",
+      "horseGallop",
+      "horseLeap"
+    ],
+    "animations": {
+      "camelIdle": {
+        "key": "mount.camelIdle",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "camelIdle"
+        ]
+      },
+      "camelWalk": {
+        "key": "mount.camelWalk",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "camelWalk"
+        ]
+      },
+      "camelGallop": {
+        "key": "mount.camelGallop",
+        "frameRate": 8,
+        "repeat": -1,
+        "frames": [
+          "camelGallop",
+          "camelLeap"
+        ]
+      },
+      "camelLeap": {
+        "key": "mount.camelLeap",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "camelLeap"
+        ]
+      },
+      "horseIdle": {
+        "key": "mount.horseIdle",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "horseIdle"
+        ]
+      },
+      "horseWalk": {
+        "key": "mount.horseWalk",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "horseWalk"
+        ]
+      },
+      "horseGallop": {
+        "key": "mount.horseGallop",
+        "frameRate": 9,
+        "repeat": -1,
+        "frames": [
+          "horseGallop",
+          "horseLeap"
+        ]
+      },
+      "horseLeap": {
+        "key": "mount.horseLeap",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "horseLeap"
+        ]
+      }
+    }
+  },
+  {
+    "id": "npc",
+    "image": "npc.png",
+    "atlas": "npc.json",
+    "anchor": {
+      "x": 46,
+      "y": 124,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 92,
+      "h": 126
+    },
+    "poses": [
+      "maraA",
+      "maraB",
+      "cartographerA",
+      "cartographerB",
+      "sadiqA",
+      "sadiqB",
+      "orrinA",
+      "orrinB",
+      "seraA",
+      "seraB",
+      "ivoA",
+      "ivoB"
+    ],
+    "animations": {
+      "mara": {
+        "key": "npc.mara",
+        "frameRate": 0.7,
+        "repeat": -1,
+        "frames": [
+          "maraA",
+          "maraB"
+        ]
+      },
+      "cartographer": {
+        "key": "npc.cartographer",
+        "frameRate": 0.7,
+        "repeat": -1,
+        "frames": [
+          "cartographerA",
+          "cartographerB"
+        ]
+      },
+      "sadiq": {
+        "key": "npc.sadiq",
+        "frameRate": 0.7,
+        "repeat": -1,
+        "frames": [
+          "sadiqA",
+          "sadiqB"
+        ]
+      },
+      "orrin": {
+        "key": "npc.orrin",
+        "frameRate": 0.7,
+        "repeat": -1,
+        "frames": [
+          "orrinA",
+          "orrinB"
+        ]
+      },
+      "sera": {
+        "key": "npc.sera",
+        "frameRate": 0.7,
+        "repeat": -1,
+        "frames": [
+          "seraA",
+          "seraB"
+        ]
+      },
+      "ivo": {
+        "key": "npc.ivo",
+        "frameRate": 0.7,
+        "repeat": -1,
+        "frames": [
+          "ivoA",
+          "ivoB"
+        ]
+      }
+    }
+  },
+  {
+    "id": "props",
+    "image": "props.png",
+    "atlas": "props.json",
+    "anchor": {
+      "x": 62,
+      "y": 65,
+      "kind": "center"
+    },
+    "frameSize": {
+      "w": 124,
+      "h": 130
+    },
+    "poses": [
+      "pistol",
+      "pistolPickup",
+      "capacitor",
+      "boltLarge",
+      "boltSmall",
+      "relayIdle",
+      "relayActive",
+      "relayBroken"
+    ],
+    "animations": {
+      "pistol": {
+        "key": "props.pistol",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "pistol"
+        ]
+      },
+      "pistolPickup": {
+        "key": "props.pistolPickup",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "pistolPickup"
+        ]
+      },
+      "capacitor": {
+        "key": "props.capacitor",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "capacitor"
+        ]
+      },
+      "boltLarge": {
+        "key": "props.boltLarge",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "boltLarge"
+        ]
+      },
+      "boltSmall": {
+        "key": "props.boltSmall",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "boltSmall"
+        ]
+      },
+      "relayIdle": {
+        "key": "props.relayIdle",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "relayIdle"
+        ]
+      },
+      "relayActive": {
+        "key": "props.relayActive",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "relayActive"
+        ]
+      },
+      "relayBroken": {
+        "key": "props.relayBroken",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "relayBroken"
+        ]
+      }
+    }
+  },
+  {
+    "id": "rook.bare.act",
+    "image": "rook-bare-act.png",
+    "atlas": "rook-bare-act.json",
+    "anchor": {
+      "x": 54,
+      "y": 106,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 132,
+      "h": 120
+    },
+    "poses": [
+      "guard",
+      "guardPerfect",
+      "dodgeRoll",
+      "hurt",
+      "heavyWindup",
+      "heavyStrike",
+      "poundDive",
+      "poundImpact"
+    ],
+    "animations": {
+      "guard": {
+        "key": "rook.bare.act.guard",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "guard"
+        ]
+      },
+      "guardPerfect": {
+        "key": "rook.bare.act.guardPerfect",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "guardPerfect"
+        ]
+      },
+      "dodge": {
+        "key": "rook.bare.act.dodge",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "dodgeRoll"
+        ]
+      },
+      "hurt": {
+        "key": "rook.bare.act.hurt",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "hurt"
+        ]
+      },
+      "heavy": {
+        "key": "rook.bare.act.heavy",
+        "frameRate": 6,
+        "repeat": 0,
+        "frames": [
+          "heavyWindup",
+          "heavyStrike"
+        ]
+      },
+      "poundDive": {
+        "key": "rook.bare.act.poundDive",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "poundDive"
+        ]
+      },
+      "poundImpact": {
+        "key": "rook.bare.act.poundImpact",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "poundImpact"
+        ]
+      }
+    }
+  },
+  {
+    "id": "rook.bare.air",
+    "image": "rook-bare-air.png",
+    "atlas": "rook-bare-air.json",
+    "anchor": {
+      "x": 47,
+      "y": 107,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 94,
+      "h": 147
+    },
+    "poses": [
+      "idleNeutral",
+      "idleCompression",
+      "runContact",
+      "runPassing",
+      "runHigh",
+      "runRecoil",
+      "jumpRise",
+      "apex",
+      "fall",
+      "crouch",
+      "fistExtension",
+      "ledgeHang"
+    ],
+    "animations": {
+      "jumpRise": {
+        "key": "rook.bare.air.jumpRise",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "jumpRise"
+        ]
+      },
+      "apex": {
+        "key": "rook.bare.air.apex",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "apex"
+        ]
+      },
+      "fall": {
+        "key": "rook.bare.air.fall",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "fall"
+        ]
+      },
+      "land": {
+        "key": "rook.bare.air.land",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "crouch"
+        ]
+      }
+    }
+  },
+  {
+    "id": "rook.bare.combat",
+    "image": "rook-bare-combat.png",
+    "atlas": "rook-bare-combat.json",
+    "anchor": {
+      "x": 61,
+      "y": 123,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 122,
+      "h": 124
+    },
+    "poses": [
+      "guard",
+      "jabImpact",
+      "defeated",
+      "stagger",
+      "windup",
+      "punchExtend",
+      "launched",
+      "downed"
+    ],
+    "animations": {
+      "guard": {
+        "key": "rook.bare.combat.guard",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "guard"
+        ]
+      },
+      "jab": {
+        "key": "rook.bare.combat.jab",
+        "frameRate": 10,
+        "repeat": 0,
+        "frames": [
+          "windup",
+          "jabImpact"
+        ]
+      },
+      "punch": {
+        "key": "rook.bare.combat.punch",
+        "frameRate": 8,
+        "repeat": 0,
+        "frames": [
+          "windup",
+          "punchExtend"
+        ]
+      },
+      "stagger": {
+        "key": "rook.bare.combat.stagger",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "stagger"
+        ]
+      },
+      "launched": {
+        "key": "rook.bare.combat.launched",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "launched"
+        ]
+      },
+      "downed": {
+        "key": "rook.bare.combat.downed",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "downed"
+        ]
+      },
+      "defeated": {
+        "key": "rook.bare.combat.defeated",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "defeated"
+        ]
+      }
+    }
+  },
+  {
+    "id": "rook.bare",
+    "image": "rook-bare.png",
+    "atlas": "rook-bare.json",
+    "anchor": {
+      "x": 45,
+      "y": 107,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 89,
+      "h": 139
+    },
+    "poses": [
+      "idle",
+      "crouch",
+      "runContact",
+      "runStride",
+      "runPass",
+      "dive",
+      "ledgeHang",
+      "ledgeHangPull",
+      "landing",
+      "crouchLow",
+      "punch",
+      "reachGrab"
+    ],
+    "animations": {
+      "idle": {
+        "key": "rook.bare.idle",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "idle"
+        ]
+      },
+      "run": {
+        "key": "rook.bare.run",
+        "frameRate": 12,
+        "repeat": -1,
+        "frames": [
+          "runContact",
+          "runStride",
+          "runPass"
+        ]
+      },
+      "crouch": {
+        "key": "rook.bare.crouch",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "crouch"
+        ]
+      },
+      "crouchLow": {
+        "key": "rook.bare.crouchLow",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "crouchLow"
+        ]
+      },
+      "dive": {
+        "key": "rook.bare.dive",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "dive"
+        ]
+      },
+      "ledgeHang": {
+        "key": "rook.bare.ledgeHang",
+        "frameRate": 2,
+        "repeat": -1,
+        "frames": [
+          "ledgeHang",
+          "ledgeHangPull"
+        ]
+      },
+      "ledgeClimb": {
+        "key": "rook.bare.ledgeClimb",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "ledgeHangPull"
+        ]
+      },
+      "landing": {
+        "key": "rook.bare.landing",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "landing"
+        ]
+      },
+      "punch": {
+        "key": "rook.bare.punch",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "punch"
+        ]
+      },
+      "reachGrab": {
+        "key": "rook.bare.reachGrab",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "reachGrab"
+        ]
+      }
+    }
+  },
+  {
+    "id": "rook.vinebound.act",
+    "image": "rook-vinebound-act.png",
+    "atlas": "rook-vinebound-act.json",
+    "anchor": {
+      "x": 52,
+      "y": 101,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 130,
+      "h": 128
+    },
+    "poses": [
+      "guard",
+      "guardPerfect",
+      "dodgeRoll",
+      "hurt",
+      "heavyWindup",
+      "heavyStrike",
+      "poundDive",
+      "poundImpact",
+      "pistolIdle",
+      "pistolFire",
+      "pistolRun",
+      "pistolAir"
+    ],
+    "animations": {
+      "guard": {
+        "key": "rook.vinebound.act.guard",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "guard"
+        ]
+      },
+      "guardPerfect": {
+        "key": "rook.vinebound.act.guardPerfect",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "guardPerfect"
+        ]
+      },
+      "dodge": {
+        "key": "rook.vinebound.act.dodge",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "dodgeRoll"
+        ]
+      },
+      "hurt": {
+        "key": "rook.vinebound.act.hurt",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "hurt"
+        ]
+      },
+      "heavy": {
+        "key": "rook.vinebound.act.heavy",
+        "frameRate": 6,
+        "repeat": 0,
+        "frames": [
+          "heavyWindup",
+          "heavyStrike"
+        ]
+      },
+      "poundDive": {
+        "key": "rook.vinebound.act.poundDive",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "poundDive"
+        ]
+      },
+      "poundImpact": {
+        "key": "rook.vinebound.act.poundImpact",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "poundImpact"
+        ]
+      },
+      "pistolIdle": {
+        "key": "rook.vinebound.act.pistolIdle",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "pistolIdle"
+        ]
+      },
+      "pistolFire": {
+        "key": "rook.vinebound.act.pistolFire",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "pistolFire"
+        ]
+      },
+      "pistolRun": {
+        "key": "rook.vinebound.act.pistolRun",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "pistolRun"
+        ]
+      },
+      "pistolAir": {
+        "key": "rook.vinebound.act.pistolAir",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "pistolAir"
+        ]
+      }
+    }
+  },
+  {
+    "id": "rook.vinebound.air",
+    "image": "rook-vinebound-air.png",
+    "atlas": "rook-vinebound-air.json",
+    "anchor": {
+      "x": 48,
+      "y": 107,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 97,
+      "h": 149
+    },
+    "poses": [
+      "idleNeutral",
+      "idleCompression",
+      "runContact",
+      "runPassing",
+      "runHigh",
+      "runRecoil",
+      "jumpRise",
+      "apex",
+      "fall",
+      "crouch",
+      "fistExtension",
+      "ledgeHang"
+    ],
+    "animations": {
+      "jumpRise": {
+        "key": "rook.vinebound.air.jumpRise",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "jumpRise"
+        ]
+      },
+      "apex": {
+        "key": "rook.vinebound.air.apex",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "apex"
+        ]
+      },
+      "fall": {
+        "key": "rook.vinebound.air.fall",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "fall"
+        ]
+      },
+      "land": {
+        "key": "rook.vinebound.air.land",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "crouch"
+        ]
+      }
+    }
+  },
+  {
+    "id": "rook.vinebound.combat",
+    "image": "rook-vinebound-combat.png",
+    "atlas": "rook-vinebound-combat.json",
+    "anchor": {
+      "x": 56,
+      "y": 93,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 111,
+      "h": 94
+    },
+    "poses": [
+      "guard",
+      "jabImpact",
+      "defeated",
+      "stagger",
+      "windup",
+      "punchExtend",
+      "launched",
+      "downed",
+      "pistolReady",
+      "pistolFire",
+      "pistolRun",
+      "pistolAdvance"
+    ],
+    "animations": {
+      "guard": {
+        "key": "rook.vinebound.combat.guard",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "guard"
+        ]
+      },
+      "jab": {
+        "key": "rook.vinebound.combat.jab",
+        "frameRate": 10,
+        "repeat": 0,
+        "frames": [
+          "windup",
+          "jabImpact"
+        ]
+      },
+      "punch": {
+        "key": "rook.vinebound.combat.punch",
+        "frameRate": 8,
+        "repeat": 0,
+        "frames": [
+          "windup",
+          "punchExtend"
+        ]
+      },
+      "stagger": {
+        "key": "rook.vinebound.combat.stagger",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "stagger"
+        ]
+      },
+      "launched": {
+        "key": "rook.vinebound.combat.launched",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "launched"
+        ]
+      },
+      "downed": {
+        "key": "rook.vinebound.combat.downed",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "downed"
+        ]
+      },
+      "defeated": {
+        "key": "rook.vinebound.combat.defeated",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "defeated"
+        ]
+      },
+      "pistolIdle": {
+        "key": "rook.vinebound.combat.pistolIdle",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "pistolReady"
+        ]
+      },
+      "pistolFire": {
+        "key": "rook.vinebound.combat.pistolFire",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "pistolFire"
+        ]
+      },
+      "pistolRun": {
+        "key": "rook.vinebound.combat.pistolRun",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "pistolRun"
+        ]
+      },
+      "pistolAdvance": {
+        "key": "rook.vinebound.combat.pistolAdvance",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "pistolAdvance"
+        ]
+      }
+    }
+  },
+  {
+    "id": "rook.vinebound.sword",
+    "image": "rook-vinebound-sword.png",
+    "atlas": "rook-vinebound-sword.json",
+    "anchor": {
+      "x": 60,
+      "y": 103,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 150,
+      "h": 132
+    },
+    "poses": [
+      "prowlIdle",
+      "crouchLunge",
+      "airborne",
+      "ledgeHang",
+      "hangSwing",
+      "crouchDeep",
+      "swordLow",
+      "swordGuard",
+      "swordOverhead",
+      "swordHigh",
+      "swordSlash",
+      "swordThrust"
+    ],
+    "animations": {
+      "swordReady": {
+        "key": "rook.vinebound.sword.swordReady",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "swordGuard"
+        ]
+      },
+      "swordLow": {
+        "key": "rook.vinebound.sword.swordLow",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "swordLow"
+        ]
+      },
+      "swordSlashA": {
+        "key": "rook.vinebound.sword.swordSlashA",
+        "frameRate": 9,
+        "repeat": 0,
+        "frames": [
+          "swordOverhead",
+          "swordSlash"
+        ]
+      },
+      "swordSlashB": {
+        "key": "rook.vinebound.sword.swordSlashB",
+        "frameRate": 9,
+        "repeat": 0,
+        "frames": [
+          "swordHigh",
+          "swordSlash"
+        ]
+      },
+      "swordThrust": {
+        "key": "rook.vinebound.sword.swordThrust",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "swordThrust"
+        ]
+      },
+      "prowl": {
+        "key": "rook.vinebound.sword.prowl",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "prowlIdle"
+        ]
+      },
+      "hangSwing": {
+        "key": "rook.vinebound.sword.hangSwing",
+        "frameRate": 2,
+        "repeat": -1,
+        "frames": [
+          "ledgeHang",
+          "hangSwing"
+        ]
+      }
+    }
+  },
+  {
+    "id": "rook.vinebound",
+    "image": "rook-vinebound.png",
+    "atlas": "rook-vinebound.json",
+    "anchor": {
+      "x": 48,
+      "y": 107,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 97,
+      "h": 149
+    },
+    "poses": [
+      "idleNeutral",
+      "idleCompression",
+      "runContact",
+      "runPassing",
+      "runHigh",
+      "runRecoil",
+      "jumpRise",
+      "apex",
+      "fall",
+      "crouch",
+      "fistExtension",
+      "ledgeHang"
+    ],
+    "animations": {
+      "idle": {
+        "key": "rook.vinebound.idle",
+        "frameRate": 0.8,
+        "repeat": -1,
+        "frames": [
+          "idleNeutral",
+          "idleCompression"
+        ]
+      },
+      "run": {
+        "key": "rook.vinebound.run",
+        "frameRate": 12,
+        "repeat": -1,
+        "frames": [
+          "runContact",
+          "runPassing",
+          "runHigh",
+          "runRecoil"
+        ]
+      },
+      "crouch": {
+        "key": "rook.vinebound.crouch",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "crouch"
+        ]
+      },
+      "crouchLow": {
+        "key": "rook.vinebound.crouchLow",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "crouch"
+        ]
+      },
+      "landing": {
+        "key": "rook.vinebound.landing",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "crouch"
+        ]
+      },
+      "ledgeHang": {
+        "key": "rook.vinebound.ledgeHang",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "ledgeHang"
+        ]
+      },
+      "ledgeClimb": {
+        "key": "rook.vinebound.ledgeClimb",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "ledgeHang"
+        ]
+      },
+      "punch": {
+        "key": "rook.vinebound.punch",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "fistExtension"
+        ]
+      },
+      "reachGrab": {
+        "key": "rook.vinebound.reachGrab",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "fistExtension"
+        ]
+      },
+      "dive": {
+        "key": "rook.vinebound.dive",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "fall"
+        ]
+      }
+    }
+  },
+  {
+    "id": "scrapjaw",
+    "image": "scrapjaw.png",
+    "atlas": "scrapjaw.json",
+    "anchor": {
+      "x": 79,
+      "y": 92,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 167,
+      "h": 93
+    },
+    "poses": [
+      "idle",
+      "patrolContact",
+      "patrolPassing",
+      "patrolRecoil",
+      "windup",
+      "lunge",
+      "stagger",
+      "dismantled"
+    ],
+    "animations": {
+      "idle": {
+        "key": "scrapjaw.idle",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "idle"
+        ]
+      },
+      "patrol": {
+        "key": "scrapjaw.patrol",
+        "frameRate": 7,
+        "repeat": -1,
+        "frames": [
+          "patrolContact",
+          "patrolPassing",
+          "patrolRecoil"
+        ]
+      },
+      "windup": {
+        "key": "scrapjaw.windup",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "windup"
+        ]
+      },
+      "lunge": {
+        "key": "scrapjaw.lunge",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "lunge"
+        ]
+      },
+      "stagger": {
+        "key": "scrapjaw.stagger",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "stagger"
+        ]
+      },
+      "dismantled": {
+        "key": "scrapjaw.dismantled",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "dismantled"
+        ]
+      }
+    }
+  },
+  {
+    "id": "warden",
+    "image": "warden.png",
+    "atlas": "warden.json",
+    "anchor": {
+      "x": 81,
+      "y": 130,
+      "kind": "foot"
+    },
+    "frameSize": {
+      "w": 163,
+      "h": 146
+    },
+    "poses": [
+      "idle",
+      "walk",
+      "charge",
+      "rootWindup",
+      "rootSlam",
+      "stunned",
+      "enraged",
+      "defeated"
+    ],
+    "animations": {
+      "idle": {
+        "key": "warden.idle",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "idle"
+        ]
+      },
+      "walk": {
+        "key": "warden.walk",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "walk"
+        ]
+      },
+      "charge": {
+        "key": "warden.charge",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "charge"
+        ]
+      },
+      "rootWindup": {
+        "key": "warden.rootWindup",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "rootWindup"
+        ]
+      },
+      "rootSlam": {
+        "key": "warden.rootSlam",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "rootSlam"
+        ]
+      },
+      "stunned": {
+        "key": "warden.stunned",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "stunned"
+        ]
+      },
+      "enraged": {
+        "key": "warden.enraged",
+        "frameRate": 1,
+        "repeat": -1,
+        "frames": [
+          "enraged"
+        ]
+      },
+      "defeated": {
+        "key": "warden.defeated",
+        "frameRate": 1,
+        "repeat": 0,
+        "frames": [
+          "defeated"
+        ]
+      }
+    }
+  }
+];
+const out = document.getElementById('out');
+const guidesBox = document.getElementById('guides');
+const speedBox = document.getElementById('speed');
+
+for (const m of MANIFESTS) {
+  const img = new Image();
+  img.src = m.image;
+  const atlas = MANIFESTS_ATLAS[m.atlas];
+
+  const section = document.createElement('section');
+  section.innerHTML = '<h2>' + m.id + '  ·  ' + m.frameSize.w + '×' + m.frameSize.h +
+                      '  ·  anchor (' + m.anchor.x + ', ' + m.anchor.y + ') ' + m.anchor.kind + '</h2>';
+  const row = document.createElement('div');
+  row.className = 'row';
+  section.appendChild(row);
+  out.appendChild(section);
+
+  for (const [name, anim] of Object.entries(m.animations)) {
+    const fig = document.createElement('figure');
+    fig.className = 'cell';
+    fig.style.margin = '0';
+    const cv = document.createElement('canvas');
+    cv.width = m.frameSize.w;
+    cv.height = m.frameSize.h;
+    fig.appendChild(cv);
+    const cap = document.createElement('figcaption');
+    cap.textContent = name + '  (' + anim.frames.length + 'f @ ' + anim.frameRate + ')';
+    fig.appendChild(cap);
+    row.appendChild(fig);
+
+    const ctx = cv.getContext('2d');
+    let i = 0, last = 0;
+    function draw(t) {
+      const step = 1000 / (anim.frameRate * (speedBox.value / 100));
+      if (t - last > step) { i = (i + 1) % anim.frames.length; last = t; }
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      if (guidesBox.checked) {
+        ctx.strokeStyle = 'rgba(217,164,65,.55)'; ctx.beginPath();
+        ctx.moveTo(0, m.anchor.y + .5); ctx.lineTo(cv.width, m.anchor.y + .5); ctx.stroke();
+        ctx.strokeStyle = 'rgba(79,214,232,.35)'; ctx.beginPath();
+        ctx.moveTo(m.anchor.x + .5, 0); ctx.lineTo(m.anchor.x + .5, cv.height); ctx.stroke();
+      }
+      const key = m.id + '.' + anim.frames[i];
+      const f = atlas && atlas.frames[key];
+      if (f && img.complete) {
+        ctx.drawImage(img, f.frame.x, f.frame.y, f.frame.w, f.frame.h, 0, 0, f.frame.w, f.frame.h);
+      }
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  }
+}
+</script>

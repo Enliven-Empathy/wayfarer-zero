@@ -1,0 +1,200 @@
+{
+  "frames": {
+    "rook.bare.combat.guard": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 122,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 122,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 122,
+        "h": 124
+      }
+    },
+    "rook.bare.combat.jabImpact": {
+      "frame": {
+        "x": 126,
+        "y": 2,
+        "w": 122,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 122,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 122,
+        "h": 124
+      }
+    },
+    "rook.bare.combat.defeated": {
+      "frame": {
+        "x": 250,
+        "y": 2,
+        "w": 122,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 122,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 122,
+        "h": 124
+      }
+    },
+    "rook.bare.combat.stagger": {
+      "frame": {
+        "x": 374,
+        "y": 2,
+        "w": 122,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 122,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 122,
+        "h": 124
+      }
+    },
+    "rook.bare.combat.windup": {
+      "frame": {
+        "x": 498,
+        "y": 2,
+        "w": 122,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 122,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 122,
+        "h": 124
+      }
+    },
+    "rook.bare.combat.punchExtend": {
+      "frame": {
+        "x": 622,
+        "y": 2,
+        "w": 122,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 122,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 122,
+        "h": 124
+      }
+    },
+    "rook.bare.combat.launched": {
+      "frame": {
+        "x": 746,
+        "y": 2,
+        "w": 122,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 122,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 122,
+        "h": 124
+      }
+    },
+    "rook.bare.combat.downed": {
+      "frame": {
+        "x": 870,
+        "y": 2,
+        "w": 122,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 122,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 122,
+        "h": 124
+      }
+    }
+  },
+  "animations": {
+    "rook.bare.combat.guard": [
+      "rook.bare.combat.guard"
+    ],
+    "rook.bare.combat.jab": [
+      "rook.bare.combat.windup",
+      "rook.bare.combat.jabImpact"
+    ],
+    "rook.bare.combat.punch": [
+      "rook.bare.combat.windup",
+      "rook.bare.combat.punchExtend"
+    ],
+    "rook.bare.combat.stagger": [
+      "rook.bare.combat.stagger"
+    ],
+    "rook.bare.combat.launched": [
+      "rook.bare.combat.launched"
+    ],
+    "rook.bare.combat.downed": [
+      "rook.bare.combat.downed"
+    ],
+    "rook.bare.combat.defeated": [
+      "rook.bare.combat.defeated"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "rook-bare-combat.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 994,
+      "h": 128
+    },
+    "scale": "1"
+  }
+}

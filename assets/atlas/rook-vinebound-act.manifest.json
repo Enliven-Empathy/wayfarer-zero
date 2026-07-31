@@ -1,0 +1,119 @@
+{
+  "id": "rook.vinebound.act",
+  "image": "rook-vinebound-act.png",
+  "atlas": "rook-vinebound-act.json",
+  "anchor": {
+    "x": 52,
+    "y": 101,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 130,
+    "h": 128
+  },
+  "poses": [
+    "guard",
+    "guardPerfect",
+    "dodgeRoll",
+    "hurt",
+    "heavyWindup",
+    "heavyStrike",
+    "poundDive",
+    "poundImpact",
+    "pistolIdle",
+    "pistolFire",
+    "pistolRun",
+    "pistolAir"
+  ],
+  "animations": {
+    "guard": {
+      "key": "rook.vinebound.act.guard",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "guard"
+      ]
+    },
+    "guardPerfect": {
+      "key": "rook.vinebound.act.guardPerfect",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "guardPerfect"
+      ]
+    },
+    "dodge": {
+      "key": "rook.vinebound.act.dodge",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "dodgeRoll"
+      ]
+    },
+    "hurt": {
+      "key": "rook.vinebound.act.hurt",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "hurt"
+      ]
+    },
+    "heavy": {
+      "key": "rook.vinebound.act.heavy",
+      "frameRate": 6,
+      "repeat": 0,
+      "frames": [
+        "heavyWindup",
+        "heavyStrike"
+      ]
+    },
+    "poundDive": {
+      "key": "rook.vinebound.act.poundDive",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "poundDive"
+      ]
+    },
+    "poundImpact": {
+      "key": "rook.vinebound.act.poundImpact",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "poundImpact"
+      ]
+    },
+    "pistolIdle": {
+      "key": "rook.vinebound.act.pistolIdle",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "pistolIdle"
+      ]
+    },
+    "pistolFire": {
+      "key": "rook.vinebound.act.pistolFire",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "pistolFire"
+      ]
+    },
+    "pistolRun": {
+      "key": "rook.vinebound.act.pistolRun",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "pistolRun"
+      ]
+    },
+    "pistolAir": {
+      "key": "rook.vinebound.act.pistolAir",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "pistolAir"
+      ]
+    }
+  }
+}

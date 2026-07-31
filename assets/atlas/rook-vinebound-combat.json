@@ -1,0 +1,292 @@
+{
+  "frames": {
+    "rook.vinebound.combat.guard": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.jabImpact": {
+      "frame": {
+        "x": 115,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.defeated": {
+      "frame": {
+        "x": 228,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.stagger": {
+      "frame": {
+        "x": 341,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.windup": {
+      "frame": {
+        "x": 454,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.punchExtend": {
+      "frame": {
+        "x": 567,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.launched": {
+      "frame": {
+        "x": 680,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.downed": {
+      "frame": {
+        "x": 793,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.pistolReady": {
+      "frame": {
+        "x": 906,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.pistolFire": {
+      "frame": {
+        "x": 1019,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.pistolRun": {
+      "frame": {
+        "x": 1132,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    },
+    "rook.vinebound.combat.pistolAdvance": {
+      "frame": {
+        "x": 1245,
+        "y": 2,
+        "w": 111,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 94
+      }
+    }
+  },
+  "animations": {
+    "rook.vinebound.combat.guard": [
+      "rook.vinebound.combat.guard"
+    ],
+    "rook.vinebound.combat.jab": [
+      "rook.vinebound.combat.windup",
+      "rook.vinebound.combat.jabImpact"
+    ],
+    "rook.vinebound.combat.punch": [
+      "rook.vinebound.combat.windup",
+      "rook.vinebound.combat.punchExtend"
+    ],
+    "rook.vinebound.combat.stagger": [
+      "rook.vinebound.combat.stagger"
+    ],
+    "rook.vinebound.combat.launched": [
+      "rook.vinebound.combat.launched"
+    ],
+    "rook.vinebound.combat.downed": [
+      "rook.vinebound.combat.downed"
+    ],
+    "rook.vinebound.combat.defeated": [
+      "rook.vinebound.combat.defeated"
+    ],
+    "rook.vinebound.combat.pistolIdle": [
+      "rook.vinebound.combat.pistolReady"
+    ],
+    "rook.vinebound.combat.pistolFire": [
+      "rook.vinebound.combat.pistolFire"
+    ],
+    "rook.vinebound.combat.pistolRun": [
+      "rook.vinebound.combat.pistolRun"
+    ],
+    "rook.vinebound.combat.pistolAdvance": [
+      "rook.vinebound.combat.pistolAdvance"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "rook-vinebound-combat.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1358,
+      "h": 98
+    },
+    "scale": "1"
+  }
+}

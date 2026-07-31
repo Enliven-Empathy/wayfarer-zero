@@ -1,0 +1,120 @@
+{
+  "id": "rook.vinebound.combat",
+  "image": "rook-vinebound-combat.png",
+  "atlas": "rook-vinebound-combat.json",
+  "anchor": {
+    "x": 56,
+    "y": 93,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 111,
+    "h": 94
+  },
+  "poses": [
+    "guard",
+    "jabImpact",
+    "defeated",
+    "stagger",
+    "windup",
+    "punchExtend",
+    "launched",
+    "downed",
+    "pistolReady",
+    "pistolFire",
+    "pistolRun",
+    "pistolAdvance"
+  ],
+  "animations": {
+    "guard": {
+      "key": "rook.vinebound.combat.guard",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "guard"
+      ]
+    },
+    "jab": {
+      "key": "rook.vinebound.combat.jab",
+      "frameRate": 10,
+      "repeat": 0,
+      "frames": [
+        "windup",
+        "jabImpact"
+      ]
+    },
+    "punch": {
+      "key": "rook.vinebound.combat.punch",
+      "frameRate": 8,
+      "repeat": 0,
+      "frames": [
+        "windup",
+        "punchExtend"
+      ]
+    },
+    "stagger": {
+      "key": "rook.vinebound.combat.stagger",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "stagger"
+      ]
+    },
+    "launched": {
+      "key": "rook.vinebound.combat.launched",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "launched"
+      ]
+    },
+    "downed": {
+      "key": "rook.vinebound.combat.downed",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "downed"
+      ]
+    },
+    "defeated": {
+      "key": "rook.vinebound.combat.defeated",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "defeated"
+      ]
+    },
+    "pistolIdle": {
+      "key": "rook.vinebound.combat.pistolIdle",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "pistolReady"
+      ]
+    },
+    "pistolFire": {
+      "key": "rook.vinebound.combat.pistolFire",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "pistolFire"
+      ]
+    },
+    "pistolRun": {
+      "key": "rook.vinebound.combat.pistolRun",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "pistolRun"
+      ]
+    },
+    "pistolAdvance": {
+      "key": "rook.vinebound.combat.pistolAdvance",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "pistolAdvance"
+      ]
+    }
+  }
+}

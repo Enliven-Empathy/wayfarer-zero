@@ -1,0 +1,291 @@
+{
+  "frames": {
+    "rook.vinebound.idleNeutral": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.idleCompression": {
+      "frame": {
+        "x": 101,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.runContact": {
+      "frame": {
+        "x": 200,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.runPassing": {
+      "frame": {
+        "x": 299,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.runHigh": {
+      "frame": {
+        "x": 398,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.runRecoil": {
+      "frame": {
+        "x": 497,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.jumpRise": {
+      "frame": {
+        "x": 596,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.apex": {
+      "frame": {
+        "x": 695,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.fall": {
+      "frame": {
+        "x": 794,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.crouch": {
+      "frame": {
+        "x": 893,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.fistExtension": {
+      "frame": {
+        "x": 992,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    },
+    "rook.vinebound.ledgeHang": {
+      "frame": {
+        "x": 1091,
+        "y": 2,
+        "w": 97,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 97,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 97,
+        "h": 149
+      }
+    }
+  },
+  "animations": {
+    "rook.vinebound.idle": [
+      "rook.vinebound.idleNeutral",
+      "rook.vinebound.idleCompression"
+    ],
+    "rook.vinebound.run": [
+      "rook.vinebound.runContact",
+      "rook.vinebound.runPassing",
+      "rook.vinebound.runHigh",
+      "rook.vinebound.runRecoil"
+    ],
+    "rook.vinebound.crouch": [
+      "rook.vinebound.crouch"
+    ],
+    "rook.vinebound.crouchLow": [
+      "rook.vinebound.crouch"
+    ],
+    "rook.vinebound.landing": [
+      "rook.vinebound.crouch"
+    ],
+    "rook.vinebound.ledgeHang": [
+      "rook.vinebound.ledgeHang"
+    ],
+    "rook.vinebound.ledgeClimb": [
+      "rook.vinebound.ledgeHang"
+    ],
+    "rook.vinebound.punch": [
+      "rook.vinebound.fistExtension"
+    ],
+    "rook.vinebound.reachGrab": [
+      "rook.vinebound.fistExtension"
+    ],
+    "rook.vinebound.dive": [
+      "rook.vinebound.fall"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "rook-vinebound.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1190,
+      "h": 153
+    },
+    "scale": "1"
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "frames": {
+    "scrapjaw.idle": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 167,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 167,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 167,
+        "h": 93
+      }
+    },
+    "scrapjaw.patrolContact": {
+      "frame": {
+        "x": 171,
+        "y": 2,
+        "w": 167,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 167,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 167,
+        "h": 93
+      }
+    },
+    "scrapjaw.patrolPassing": {
+      "frame": {
+        "x": 340,
+        "y": 2,
+        "w": 167,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 167,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 167,
+        "h": 93
+      }
+    },
+    "scrapjaw.patrolRecoil": {
+      "frame": {
+        "x": 509,
+        "y": 2,
+        "w": 167,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 167,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 167,
+        "h": 93
+      }
+    },
+    "scrapjaw.windup": {
+      "frame": {
+        "x": 678,
+        "y": 2,
+        "w": 167,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 167,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 167,
+        "h": 93
+      }
+    },
+    "scrapjaw.lunge": {
+      "frame": {
+        "x": 847,
+        "y": 2,
+        "w": 167,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 167,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 167,
+        "h": 93
+      }
+    },
+    "scrapjaw.stagger": {
+      "frame": {
+        "x": 1016,
+        "y": 2,
+        "w": 167,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 167,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 167,
+        "h": 93
+      }
+    },
+    "scrapjaw.dismantled": {
+      "frame": {
+        "x": 1185,
+        "y": 2,
+        "w": 167,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 167,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 167,
+        "h": 93
+      }
+    }
+  },
+  "animations": {
+    "scrapjaw.idle": [
+      "scrapjaw.idle"
+    ],
+    "scrapjaw.patrol": [
+      "scrapjaw.patrolContact",
+      "scrapjaw.patrolPassing",
+      "scrapjaw.patrolRecoil"
+    ],
+    "scrapjaw.windup": [
+      "scrapjaw.windup"
+    ],
+    "scrapjaw.lunge": [
+      "scrapjaw.lunge"
+    ],
+    "scrapjaw.stagger": [
+      "scrapjaw.stagger"
+    ],
+    "scrapjaw.dismantled": [
+      "scrapjaw.dismantled"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "scrapjaw.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1354,
+      "h": 97
+    },
+    "scale": "1"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "id": "npc",
+  "image": "npc.png",
+  "atlas": "npc.json",
+  "anchor": {
+    "x": 46,
+    "y": 124,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 92,
+    "h": 126
+  },
+  "poses": [
+    "maraA",
+    "maraB",
+    "cartographerA",
+    "cartographerB",
+    "sadiqA",
+    "sadiqB",
+    "orrinA",
+    "orrinB",
+    "seraA",
+    "seraB",
+    "ivoA",
+    "ivoB"
+  ],
+  "animations": {
+    "mara": {
+      "key": "npc.mara",
+      "frameRate": 0.7,
+      "repeat": -1,
+      "frames": [
+        "maraA",
+        "maraB"
+      ]
+    },
+    "cartographer": {
+      "key": "npc.cartographer",
+      "frameRate": 0.7,
+      "repeat": -1,
+      "frames": [
+        "cartographerA",
+        "cartographerB"
+      ]
+    },
+    "sadiq": {
+      "key": "npc.sadiq",
+      "frameRate": 0.7,
+      "repeat": -1,
+      "frames": [
+        "sadiqA",
+        "sadiqB"
+      ]
+    },
+    "orrin": {
+      "key": "npc.orrin",
+      "frameRate": 0.7,
+      "repeat": -1,
+      "frames": [
+        "orrinA",
+        "orrinB"
+      ]
+    },
+    "sera": {
+      "key": "npc.sera",
+      "frameRate": 0.7,
+      "repeat": -1,
+      "frames": [
+        "seraA",
+        "seraB"
+      ]
+    },
+    "ivo": {
+      "key": "npc.ivo",
+      "frameRate": 0.7,
+      "repeat": -1,
+      "frames": [
+        "ivoA",
+        "ivoB"
+      ]
+    }
+  }
+}

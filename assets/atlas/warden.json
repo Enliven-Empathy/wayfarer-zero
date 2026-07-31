@@ -1,0 +1,201 @@
+{
+  "frames": {
+    "warden.idle": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 163,
+        "h": 146
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 163,
+        "h": 146
+      },
+      "sourceSize": {
+        "w": 163,
+        "h": 146
+      }
+    },
+    "warden.walk": {
+      "frame": {
+        "x": 167,
+        "y": 2,
+        "w": 163,
+        "h": 146
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 163,
+        "h": 146
+      },
+      "sourceSize": {
+        "w": 163,
+        "h": 146
+      }
+    },
+    "warden.charge": {
+      "frame": {
+        "x": 332,
+        "y": 2,
+        "w": 163,
+        "h": 146
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 163,
+        "h": 146
+      },
+      "sourceSize": {
+        "w": 163,
+        "h": 146
+      }
+    },
+    "warden.rootWindup": {
+      "frame": {
+        "x": 497,
+        "y": 2,
+        "w": 163,
+        "h": 146
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 163,
+        "h": 146
+      },
+      "sourceSize": {
+        "w": 163,
+        "h": 146
+      }
+    },
+    "warden.rootSlam": {
+      "frame": {
+        "x": 662,
+        "y": 2,
+        "w": 163,
+        "h": 146
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 163,
+        "h": 146
+      },
+      "sourceSize": {
+        "w": 163,
+        "h": 146
+      }
+    },
+    "warden.stunned": {
+      "frame": {
+        "x": 827,
+        "y": 2,
+        "w": 163,
+        "h": 146
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 163,
+        "h": 146
+      },
+      "sourceSize": {
+        "w": 163,
+        "h": 146
+      }
+    },
+    "warden.enraged": {
+      "frame": {
+        "x": 992,
+        "y": 2,
+        "w": 163,
+        "h": 146
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 163,
+        "h": 146
+      },
+      "sourceSize": {
+        "w": 163,
+        "h": 146
+      }
+    },
+    "warden.defeated": {
+      "frame": {
+        "x": 1157,
+        "y": 2,
+        "w": 163,
+        "h": 146
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 163,
+        "h": 146
+      },
+      "sourceSize": {
+        "w": 163,
+        "h": 146
+      }
+    }
+  },
+  "animations": {
+    "warden.idle": [
+      "warden.idle"
+    ],
+    "warden.walk": [
+      "warden.walk"
+    ],
+    "warden.charge": [
+      "warden.charge"
+    ],
+    "warden.rootWindup": [
+      "warden.rootWindup"
+    ],
+    "warden.rootSlam": [
+      "warden.rootSlam"
+    ],
+    "warden.stunned": [
+      "warden.stunned"
+    ],
+    "warden.enraged": [
+      "warden.enraged"
+    ],
+    "warden.defeated": [
+      "warden.defeated"
+    ]
+  },
+  "meta": {
+    "app": "wayfarer-atlas-forge",
+    "version": "1.0.0",
+    "image": "warden.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1322,
+      "h": 150
+    },
+    "scale": "1"
+  }
+}

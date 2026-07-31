@@ -1,0 +1,84 @@
+{
+  "id": "rook.bare.combat",
+  "image": "rook-bare-combat.png",
+  "atlas": "rook-bare-combat.json",
+  "anchor": {
+    "x": 61,
+    "y": 123,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 122,
+    "h": 124
+  },
+  "poses": [
+    "guard",
+    "jabImpact",
+    "defeated",
+    "stagger",
+    "windup",
+    "punchExtend",
+    "launched",
+    "downed"
+  ],
+  "animations": {
+    "guard": {
+      "key": "rook.bare.combat.guard",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "guard"
+      ]
+    },
+    "jab": {
+      "key": "rook.bare.combat.jab",
+      "frameRate": 10,
+      "repeat": 0,
+      "frames": [
+        "windup",
+        "jabImpact"
+      ]
+    },
+    "punch": {
+      "key": "rook.bare.combat.punch",
+      "frameRate": 8,
+      "repeat": 0,
+      "frames": [
+        "windup",
+        "punchExtend"
+      ]
+    },
+    "stagger": {
+      "key": "rook.bare.combat.stagger",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "stagger"
+      ]
+    },
+    "launched": {
+      "key": "rook.bare.combat.launched",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "launched"
+      ]
+    },
+    "downed": {
+      "key": "rook.bare.combat.downed",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "downed"
+      ]
+    },
+    "defeated": {
+      "key": "rook.bare.combat.defeated",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "defeated"
+      ]
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "rook.vinebound.air",
+  "image": "rook-vinebound-air.png",
+  "atlas": "rook-vinebound-air.json",
+  "anchor": {
+    "x": 48,
+    "y": 107,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 97,
+    "h": 149
+  },
+  "poses": [
+    "idleNeutral",
+    "idleCompression",
+    "runContact",
+    "runPassing",
+    "runHigh",
+    "runRecoil",
+    "jumpRise",
+    "apex",
+    "fall",
+    "crouch",
+    "fistExtension",
+    "ledgeHang"
+  ],
+  "animations": {
+    "jumpRise": {
+      "key": "rook.vinebound.air.jumpRise",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "jumpRise"
+      ]
+    },
+    "apex": {
+      "key": "rook.vinebound.air.apex",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "apex"
+      ]
+    },
+    "fall": {
+      "key": "rook.vinebound.air.fall",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "fall"
+      ]
+    },
+    "land": {
+      "key": "rook.vinebound.air.land",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "crouch"
+      ]
+    }
+  }
+}

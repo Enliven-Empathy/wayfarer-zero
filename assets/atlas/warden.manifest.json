@@ -1,0 +1,90 @@
+{
+  "id": "warden",
+  "image": "warden.png",
+  "atlas": "warden.json",
+  "anchor": {
+    "x": 81,
+    "y": 130,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 163,
+    "h": 146
+  },
+  "poses": [
+    "idle",
+    "walk",
+    "charge",
+    "rootWindup",
+    "rootSlam",
+    "stunned",
+    "enraged",
+    "defeated"
+  ],
+  "animations": {
+    "idle": {
+      "key": "warden.idle",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "idle"
+      ]
+    },
+    "walk": {
+      "key": "warden.walk",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "walk"
+      ]
+    },
+    "charge": {
+      "key": "warden.charge",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "charge"
+      ]
+    },
+    "rootWindup": {
+      "key": "warden.rootWindup",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "rootWindup"
+      ]
+    },
+    "rootSlam": {
+      "key": "warden.rootSlam",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "rootSlam"
+      ]
+    },
+    "stunned": {
+      "key": "warden.stunned",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "stunned"
+      ]
+    },
+    "enraged": {
+      "key": "warden.enraged",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "enraged"
+      ]
+    },
+    "defeated": {
+      "key": "warden.defeated",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "defeated"
+      ]
+    }
+  }
+}

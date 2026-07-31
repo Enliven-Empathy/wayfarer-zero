@@ -1,0 +1,83 @@
+{
+  "id": "rook.bare.act",
+  "image": "rook-bare-act.png",
+  "atlas": "rook-bare-act.json",
+  "anchor": {
+    "x": 54,
+    "y": 106,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 132,
+    "h": 120
+  },
+  "poses": [
+    "guard",
+    "guardPerfect",
+    "dodgeRoll",
+    "hurt",
+    "heavyWindup",
+    "heavyStrike",
+    "poundDive",
+    "poundImpact"
+  ],
+  "animations": {
+    "guard": {
+      "key": "rook.bare.act.guard",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "guard"
+      ]
+    },
+    "guardPerfect": {
+      "key": "rook.bare.act.guardPerfect",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "guardPerfect"
+      ]
+    },
+    "dodge": {
+      "key": "rook.bare.act.dodge",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "dodgeRoll"
+      ]
+    },
+    "hurt": {
+      "key": "rook.bare.act.hurt",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "hurt"
+      ]
+    },
+    "heavy": {
+      "key": "rook.bare.act.heavy",
+      "frameRate": 6,
+      "repeat": 0,
+      "frames": [
+        "heavyWindup",
+        "heavyStrike"
+      ]
+    },
+    "poundDive": {
+      "key": "rook.bare.act.poundDive",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "poundDive"
+      ]
+    },
+    "poundImpact": {
+      "key": "rook.bare.act.poundImpact",
+      "frameRate": 1,
+      "repeat": 0,
+      "frames": [
+        "poundImpact"
+      ]
+    }
+  }
+}

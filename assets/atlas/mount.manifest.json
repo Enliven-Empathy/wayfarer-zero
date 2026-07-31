@@ -1,0 +1,92 @@
+{
+  "id": "mount",
+  "image": "mount.png",
+  "atlas": "mount.json",
+  "anchor": {
+    "x": 72,
+    "y": 143,
+    "kind": "foot"
+  },
+  "frameSize": {
+    "w": 144,
+    "h": 144
+  },
+  "poses": [
+    "camelIdle",
+    "camelWalk",
+    "camelGallop",
+    "camelLeap",
+    "horseIdle",
+    "horseWalk",
+    "horseGallop",
+    "horseLeap"
+  ],
+  "animations": {
+    "camelIdle": {
+      "key": "mount.camelIdle",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "camelIdle"
+      ]
+    },
+    "camelWalk": {
+      "key": "mount.camelWalk",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "camelWalk"
+      ]
+    },
+    "camelGallop": {
+      "key": "mount.camelGallop",
+      "frameRate": 8,
+      "repeat": -1,
+      "frames": [
+        "camelGallop",
+        "camelLeap"
+      ]
+    },
+    "camelLeap": {
+      "key": "mount.camelLeap",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "camelLeap"
+      ]
+    },
+    "horseIdle": {
+      "key": "mount.horseIdle",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "horseIdle"
+      ]
+    },
+    "horseWalk": {
+      "key": "mount.horseWalk",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "horseWalk"
+      ]
+    },
+    "horseGallop": {
+      "key": "mount.horseGallop",
+      "frameRate": 9,
+      "repeat": -1,
+      "frames": [
+        "horseGallop",
+        "horseLeap"
+      ]
+    },
+    "horseLeap": {
+      "key": "mount.horseLeap",
+      "frameRate": 1,
+      "repeat": -1,
+      "frames": [
+        "horseLeap"
+      ]
+    }
+  }
+}
